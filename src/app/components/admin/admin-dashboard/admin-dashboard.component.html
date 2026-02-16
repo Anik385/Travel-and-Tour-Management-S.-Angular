@@ -1,0 +1,107 @@
+<div class="admin-dashboard">
+  <div class="dashboard-header">
+    <h1>Admin Dashboard</h1>
+    <p>Manage your travel business</p>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon revenue">
+        <i class="fas fa-dollar-sign"></i>
+      </div>
+      <div class="stat-info">
+        <h3>$12,458</h3>
+        <p>Total Revenue</p>
+        <span class="stat-trend positive">+12%</span>
+      </div>
+    </div>
+    
+    <div class="stat-card">
+      <div class="stat-card bookings">
+        <i class="fas fa-calendar-check"></i>
+      </div>
+      <div class="stat-info">
+        <h3>48</h3>
+        <p>Total Bookings</p>
+        <span class="stat-trend positive">+8%</span>
+      </div>
+    </div>
+    
+    <div class="stat-card">
+      <div class="stat-icon tours">
+        <i class="fas fa-plane"></i>
+      </div>
+      <div class="stat-info">
+        <h3>24</h3>
+        <p>Active Tours</p>
+        <span class="stat-trend positive">+5%</span>
+      </div>
+    </div>
+    
+    <div class="stat-card">
+      <div class="stat-icon users">
+        <i class="fas fa-users"></i>
+      </div>
+      <div class="stat-info">
+        <h3>156</h3>
+        <p>Registered Users</p>
+        <span class="stat-trend positive">+15%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-content">
+    <div class="recent-bookings">
+      <div class="section-header">
+        <h2>Recent Bookings</h2>
+        <button class="btn-view-all">View All</button>
+      </div>
+      <div class="bookings-table">
+        <div class="table-header">
+          <div>Booking ID</div>
+          <div>Customer</div>
+          <div>Tour</div>
+          <div>Amount</div>
+          <div>Status</div>
+        </div>
+        <div class="table-row" *ngFor="let booking of recentBookings">
+          <div class="booking-id">{{booking.id}}</div>
+          <div class="customer">{{booking.customer}}</div>
+          <div class="tour">{{booking.tour}}</div>
+          <div class="amount">${{booking.amount}}</div>
+          <div class="status confirmed">{{booking.status}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-stats">
+      <div class="stat-section">
+        <h3>Popular Tours</h3>
+        <div class="popular-tours">
+          <div class="popular-tour" *ngFor="let tour of popularTours">
+            <span class="tour-name">{{tour.name}}</span>
+            <span class="tour-bookings">{{tour.bookings}} bookings</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="stat-section">
+        <h3>Quick Actions</h3>
+        <div class="action-buttons">
+          <button class="action-btn primary" routerLink="/admin/tours/new">
+            <i class="fas fa-plus"></i>
+            Add New Tour
+          </button>
+          <button class="action-btn secondary" routerLink="/admin/tours">
+            <i class="fas fa-list"></i>
+            Manage Tours
+          </button>
+          <button class="action-btn secondary">
+            <i class="fas fa-chart-bar"></i>
+            View Reports
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

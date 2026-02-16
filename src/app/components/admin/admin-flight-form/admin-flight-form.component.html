@@ -1,0 +1,102 @@
+  <div class="flight-form-container">
+  <div class="form-header">
+    <h1>{{isEditMode ? 'Edit Flight' : 'Create New Flight'}}</h1>
+    <p>{{isEditMode ? 'Update flight details' : 'Add a new flight to your system'}}</p>
+  </div>
+
+  <form class="flight-form" #flightForm="ngForm">
+    <div class="form-sections">
+      <!-- Basic Information -->
+      <div class="form-section">
+        <h3>Basic Information</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Airline *</label>
+            <input type="text" [(ngModel)]="flight.airline" name="airline" required>
+          </div>
+          <div class="form-group">
+            <label>Flight Number *</label>
+            <input type="text" [(ngModel)]="flight.flightNumber" name="flightNumber" required>
+          </div>
+          <div class="form-group">
+            <label>Aircraft *</label>
+            <input type="text" [(ngModel)]="flight.aircraft" name="aircraft" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Route Information -->
+      <div class="form-section">
+        <h3>Route Information</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Departure Airport *</label>
+            <input type="text" [(ngModel)]="flight.departure.airport" name="departureAirport" required>
+          </div>
+          <div class="form-group">
+            <label>Arrival Airport *</label>
+            <input type="text" [(ngModel)]="flight.arrival.airport" name="arrivalAirport" required>
+          </div>
+          <div class="form-group">
+            <label>Duration *</label>
+            <input type="text" [(ngModel)]="flight.duration" name="duration" placeholder="e.g., 4h 30m" required>
+          </div>
+          <div class="form-group">
+            <label>Stops</label>
+            <input type="number" [(ngModel)]="flight.stops" name="stops" min="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- Schedule -->
+      <div class="form-section">
+        <h3>Schedule</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Departure Date *</label>
+            <input type="date" [(ngModel)]="flight.departure.date" name="departureDate" required>
+          </div>
+          <div class="form-group">
+            <label>Departure Time *</label>
+            <input type="time" [(ngModel)]="flight.departure.time" name="departureTime" required>
+          </div>
+          <div class="form-group">
+            <label>Arrival Date *</label>
+            <input type="date" [(ngModel)]="flight.arrival.date" name="arrivalDate" required>
+          </div>
+          <div class="form-group">
+            <label>Arrival Time *</label>
+            <input type="time" [(ngModel)]="flight.arrival.time" name="arrivalTime" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="form-section">
+        <h3>Pricing & Capacity</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Economy Price ($) *</label>
+            <input type="number" [(ngModel)]="flight.price.economy" name="price" required min="0">
+          </div>
+          <div class="form-group">
+            <label>Available Seats *</label>
+            <input type="number" [(ngModel)]="flight.seatsAvailable" name="seats" required min="0">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-cancel" routerLink="/admin/flights">
+        Cancel
+      </button>
+      <button type="submit" class="btn-save" (click)="saveFlight()">
+        {{isEditMode ? 'Update Flight' : 'Create Flight'}}
+      </button>
+    </div>
+  </form>
+</div>
+    <!-- http://localhost:4200/admin/flights
+
+    http://localhost:4200/admin/flights/new -->

@@ -1,0 +1,1349 @@
+{
+  "airports": [
+    {
+      "code": "DXB",
+      "name": "Dubai International Airport",
+      "city": "Dubai",
+      "country": "United Arab Emirates",
+      "timezone": "+4",
+      "id": "dc92"
+    },
+    {
+      "code": "LHR",
+      "name": "Heathrow Airport",
+      "city": "London",
+      "country": "United Kingdom",
+      "timezone": "+0",
+      "id": "e257"
+    },
+    {
+      "code": "DOH",
+      "name": "Hamad International Airport",
+      "city": "Doha",
+      "country": "Qatar",
+      "timezone": "+3",
+      "id": "79f5"
+    },
+    {
+      "code": "SIN",
+      "name": "Changi Airport",
+      "city": "Singapore",
+      "country": "Singapore",
+      "timezone": "+8",
+      "id": "0b23"
+    },
+    {
+      "code": "BKK",
+      "name": "Suvarnabhumi Airport",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "timezone": "+7",
+      "id": "2acd"
+    },
+    {
+      "code": "CDG",
+      "name": "Charles de Gaulle Airport",
+      "city": "Paris",
+      "country": "France",
+      "timezone": "+1",
+      "id": "4f2c"
+    },
+    {
+      "code": "JFK",
+      "name": "John F. Kennedy Airport",
+      "city": "New York",
+      "country": "USA",
+      "timezone": "-5",
+      "id": "36fa"
+    },
+    {
+      "code": "SYD",
+      "name": "Sydney Airport",
+      "city": "Sydney",
+      "country": "Australia",
+      "timezone": "+10",
+      "id": "d1cd"
+    },
+    {
+      "code": "HND",
+      "name": "Haneda Airport",
+      "city": "Tokyo",
+      "country": "Japan",
+      "timezone": "+9",
+      "id": "c20a"
+    },
+    {
+      "code": "JED",
+      "name": "King Abdulaziz Airport",
+      "city": "Jeddah",
+      "country": "Saudi Arabia",
+      "timezone": "+3",
+      "id": "db3f"
+    },
+    {
+      "code": "IST",
+      "name": "Istanbul Airport",
+      "city": "Istanbul",
+      "country": "Turkey",
+      "timezone": "+3",
+      "id": "9b5f"
+    },
+    {
+      "code": "FRA",
+      "name": "Frankfurt Airport",
+      "city": "Frankfurt",
+      "country": "Germany",
+      "timezone": "+1",
+      "id": "7bb0"
+    },
+    {
+      "code": "ICN",
+      "name": "Incheon Airport",
+      "city": "Seoul",
+      "country": "South Korea",
+      "timezone": "+9",
+      "id": "ac8d"
+    },
+    {
+      "code": "YYZ",
+      "name": "Toronto Pearson Airport",
+      "city": "Toronto",
+      "country": "Canada",
+      "timezone": "-5",
+      "id": "4c4e"
+    },
+    {
+      "code": "AMS",
+      "name": "Schiphol Airport",
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "timezone": "+1",
+      "id": "096d"
+    }
+  ],
+  "cities": [
+    {
+      "id": "1",
+      "name": "Dubai",
+      "country": "United Arab Emirates",
+      "airportCode": "DXB",
+      "description": "Luxury shopping, ultramodern architecture and a lively nightlife scene",
+      "image": "assets/images/cities/dubai.jpg",
+      "popularAttractions": [
+        "Burj Khalifa",
+        "Dubai Mall",
+        "Palm Jumeirah",
+        "Desert Safari"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "London",
+      "country": "United Kingdom",
+      "airportCode": "LHR",
+      "description": "Historic and modern blend with royal palaces and world-class museums",
+      "image": "assets/images/cities/london.jpg",
+      "popularAttractions": [
+        "Buckingham Palace",
+        "London Eye",
+        "Tower Bridge",
+        "British Museum"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Singapore",
+      "country": "Singapore",
+      "airportCode": "SIN",
+      "description": "Garden city with futuristic architecture and diverse cultural experiences",
+      "image": "assets/images/cities/singapore.jpg",
+      "popularAttractions": [
+        "Marina Bay Sands",
+        "Gardens by the Bay",
+        "Sentosa Island",
+        "Orchard Road"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Tokyo",
+      "country": "Japan",
+      "airportCode": "HND",
+      "description": "Blend of traditional culture and cutting-edge technology",
+      "image": "assets/images/cities/tokyo.jpg",
+      "popularAttractions": [
+        "Tokyo Skytree",
+        "Sensoji Temple",
+        "Shibuya Crossing",
+        "Imperial Palace"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Paris",
+      "country": "France",
+      "airportCode": "CDG",
+      "description": "City of love with iconic landmarks and world-class cuisine",
+      "image": "assets/images/cities/paris.jpg",
+      "popularAttractions": [
+        "Eiffel Tower",
+        "Louvre Museum",
+        "Notre-Dame",
+        "Champs-Élysées"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Bangkok",
+      "country": "Thailand",
+      "airportCode": "BKK",
+      "description": "Vibrant street life, cultural landmarks, and delicious street food",
+      "image": "assets/images/cities/bangkok.jpg",
+      "popularAttractions": [
+        "Grand Palace",
+        "Wat Arun",
+        "Chatuchak Market",
+        "Floating Markets"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "New York",
+      "country": "USA",
+      "airportCode": "JFK",
+      "description": "The city that never sleeps with iconic skyline and cultural diversity",
+      "image": "assets/images/cities/newyork.jpg",
+      "popularAttractions": [
+        "Statue of Liberty",
+        "Times Square",
+        "Central Park",
+        "Empire State Building"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Sydney",
+      "country": "Australia",
+      "airportCode": "SYD",
+      "description": "Stunning harbor, iconic opera house, and beautiful beaches",
+      "image": "assets/images/cities/sydney.jpg",
+      "popularAttractions": [
+        "Sydney Opera House",
+        "Harbour Bridge",
+        "Bondi Beach",
+        "Taronga Zoo"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Istanbul",
+      "country": "Turkey",
+      "airportCode": "IST",
+      "description": "Where East meets West with rich history and stunning architecture",
+      "image": "assets/images/cities/istanbul.jpg",
+      "popularAttractions": [
+        "Hagia Sophia",
+        "Blue Mosque",
+        "Grand Bazaar",
+        "Bosphorus Cruise"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Bali",
+      "country": "Indonesia",
+      "airportCode": "DPS",
+      "description": "Tropical paradise with beautiful beaches and spiritual culture",
+      "image": "assets/images/cities/bali.jpg",
+      "popularAttractions": [
+        "Ubud",
+        "Tanah Lot Temple",
+        "Uluwatu",
+        "Seminyak Beach"
+      ]
+    }
+  ],
+  "flights": [
+    {
+      "id": "CA202",
+      "airline": "Air China",
+      "flightNumber": "CA 202",
+      "departure": {
+        "airport": "DAC",
+        "time": "14:20",
+        "date": "2025-11-11"
+      },
+      "arrival": {
+        "airport": "PEK",
+        "time": "19:45",
+        "date": "2025-12-12"
+      },
+      "duration": "5h 25m",
+      "stops": 0,
+      "price": {
+        "economy": 5200
+      },
+      "seatsAvailable": 3,
+      "aircraft": "Airbus A350"
+    },
+    {
+      "id": "SQ305",
+      "airline": "Singapore Airlines",
+      "flightNumber": "SQ 305",
+      "aircraft": "Airbus A380",
+      "departure": {
+        "airport": "SIN",
+        "time": "23:45",
+        "date": "2024-03-14"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "06:15",
+        "date": "2024-03-15"
+      },
+      "duration": "13h 30m",
+      "stops": 0,
+      "price": {
+        "economy": 5800,
+        "premiumEconomy": 8500,
+        "business": 15000,
+        "first": 22000
+      },
+      "seatsAvailable": 12,
+      "amenities": [
+        "WiFi",
+        "Suites",
+        "Entertainment",
+        "Book the Cook"
+      ]
+    },
+    {
+      "id": "TK1984",
+      "airline": "Turkish Airlines",
+      "flightNumber": "TK 1984",
+      "aircraft": "Boeing 777-300ER",
+      "departure": {
+        "airport": "IST",
+        "time": "13:30",
+        "date": "2024-03-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "15:45",
+        "date": "2024-03-15"
+      },
+      "duration": "4h 15m",
+      "stops": 0,
+      "price": {
+        "economy": 3800,
+        "premiumEconomy": 5500,
+        "business": 9800,
+        "first": 15000
+      },
+      "seatsAvailable": 15,
+      "amenities": [
+        "WiFi",
+        "Entertainment",
+        "Turkish Delight",
+        "Chef Service"
+      ]
+    },
+    {
+      "id": "LH957",
+      "airline": "Lufthansa",
+      "flightNumber": "LH 957",
+      "aircraft": "Airbus A350-900",
+      "departure": {
+        "airport": "FRA",
+        "time": "09:45",
+        "date": "2024-03-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "10:30",
+        "date": "2024-03-15"
+      },
+      "duration": "1h 45m",
+      "stops": 0,
+      "price": {
+        "economy": 3200,
+        "premiumEconomy": 4800,
+        "business": 8500,
+        "first": 12000
+      },
+      "seatsAvailable": 20,
+      "amenities": [
+        "WiFi",
+        "Entertainment",
+        "German Hospitality",
+        "Efficient Service"
+      ]
+    },
+    {
+      "id": "AF1381",
+      "airline": "Air France",
+      "flightNumber": "AF 1381",
+      "aircraft": "Boeing 787-9",
+      "departure": {
+        "airport": "CDG",
+        "time": "07:30",
+        "date": "2024-03-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "07:55",
+        "date": "2024-03-15"
+      },
+      "duration": "1h 25m",
+      "stops": 0,
+      "price": {
+        "economy": 2900,
+        "premiumEconomy": 4200,
+        "business": 7800,
+        "first": 11000
+      },
+      "seatsAvailable": 25,
+      "amenities": [
+        "WiFi",
+        "Entertainment",
+        "French Cuisine",
+        "La Première"
+      ]
+    },
+    {
+      "id": "EY011",
+      "airline": "Etihad Airways",
+      "flightNumber": "EY 011",
+      "aircraft": "Boeing 787-9",
+      "departure": {
+        "airport": "AUH",
+        "time": "02:15",
+        "date": "2024-03-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "06:45",
+        "date": "2024-03-15"
+      },
+      "duration": "7h 30m",
+      "stops": 0,
+      "price": {
+        "economy": 4700,
+        "premiumEconomy": 6900,
+        "business": 12800,
+        "first": 19500
+      },
+      "seatsAvailable": 5,
+      "amenities": [
+        "WiFi",
+        "The Residence",
+        "Entertainment",
+        "Dine Anytime"
+      ]
+    },
+    {
+      "id": "FL1763315600878",
+      "airline": "New Airline",
+      "flightNumber": "XX 000",
+      "departure": {
+        "airport": "DXB",
+        "time": "00:00",
+        "date": "2024-01-01"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "00:00",
+        "date": "2024-01-01"
+      },
+      "duration": "0h 0m",
+      "stops": 0,
+      "price": {
+        "economy": 1000
+      },
+      "seatsAvailable": 100
+    },
+    {
+      "id": "FL1763315974501",
+      "airline": "Updated Airline",
+      "flightNumber": "XX 000",
+      "departure": {
+        "airport": "DXB",
+        "time": "00:00",
+        "date": "2024-01-01"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "00:00",
+        "date": "2024-01-01"
+      },
+      "duration": "0h 0m",
+      "stops": 0,
+      "price": {
+        "economy": 1000
+      },
+      "seatsAvailable": 100
+    },
+    {
+      "id": "FL1763315984662",
+      "airline": "New Airline",
+      "flightNumber": "XX 000",
+      "departure": {
+        "airport": "DXB",
+        "time": "00:00",
+        "date": "2024-01-01"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "00:00",
+        "date": "2024-01-01"
+      },
+      "duration": "0h 0m",
+      "stops": 0,
+      "price": {
+        "economy": 1000
+      },
+      "seatsAvailable": 100
+    },
+    {
+      "id": "FL1763316919833",
+      "airline": "Updated Airline",
+      "flightNumber": "QA 511",
+      "departure": {
+        "airport": "Emirates",
+        "time": "08:00",
+        "date": "2024-03-20"
+      },
+      "arrival": {
+        "airport": "Lufthansa",
+        "time": "12:00",
+        "date": "2024-03-20"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 200
+      },
+      "seatsAvailable": 150,
+      "aircraft": "Boeing 737",
+      "amenities": [
+        "WiFi",
+        "Entertainment",
+        "Meals"
+      ]
+    },
+    {
+      "id": "FL1763319880316",
+      "airline": "Updated Airline",
+      "flightNumber": "EM 893",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2024-03-20"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "12:00",
+        "date": "2024-03-20"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 100
+      },
+      "seatsAvailable": 150,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "FL1763319982926",
+      "airline": "Qatar Airways",
+      "flightNumber": "QA 171",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2024-03-20"
+      },
+      "arrival": {
+        "airport": "CAN",
+        "time": "12:00",
+        "date": "2024-03-20"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 100
+      },
+      "seatsAvailable": 150,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "FL1763357674017",
+      "airline": "Updated Airline",
+      "flightNumber": "EM 551",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2024-03-20"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "12:00",
+        "date": "2024-03-20"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 100
+      },
+      "seatsAvailable": 150,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "FL1763359057359",
+      "airline": "Emirates",
+      "flightNumber": "EM 884",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2024-03-20"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "12:00",
+        "date": "2024-03-20"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 100
+      },
+      "seatsAvailable": 150,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763388670875",
+      "airline": "Novo Air",
+      "flightNumber": "NO 548",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-11"
+      },
+      "arrival": {
+        "airport": "CGP",
+        "time": "12:00",
+        "date": "2025-11-11"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 645
+      },
+      "seatsAvailable": 15,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763388738965",
+      "airline": "US-Bangla Airlines",
+      "flightNumber": "US 665",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2024-11-11"
+      },
+      "arrival": {
+        "airport": "KOL",
+        "time": "12:00",
+        "date": "2024-11-11"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 250
+      },
+      "seatsAvailable": 22,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763388761181",
+      "airline": "Biman Bangladesh",
+      "flightNumber": "BI 872",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2024-11-11"
+      },
+      "arrival": {
+        "airport": "KOL",
+        "time": "12:00",
+        "date": "2024-11-11"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 531
+      },
+      "seatsAvailable": 15,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763389501600",
+      "airline": "Air Astra",
+      "flightNumber": "AI 227",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2024-11-11"
+      },
+      "arrival": {
+        "airport": "KOL",
+        "time": "12:00",
+        "date": "2024-11-11"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 403
+      },
+      "seatsAvailable": 10,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763389694170",
+      "airline": "Air Astra",
+      "flightNumber": "AI 308",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2024-11-11"
+      },
+      "arrival": {
+        "airport": "KOL",
+        "time": "12:00",
+        "date": "2024-11-11"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 262
+      },
+      "seatsAvailable": 22,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763390698854",
+      "airline": "Air Astra",
+      "flightNumber": "AI 963",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2024-11-11"
+      },
+      "arrival": {
+        "airport": "KOL",
+        "time": "12:00",
+        "date": "2024-11-11"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 501
+      },
+      "seatsAvailable": 6,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763390788777",
+      "airline": "US-Bangla Airlines",
+      "flightNumber": "US 379",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2024-11-11"
+      },
+      "arrival": {
+        "airport": "KOL",
+        "time": "12:00",
+        "date": "2024-11-11"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 551
+      },
+      "seatsAvailable": 17,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763393127687",
+      "airline": "Air Astra",
+      "flightNumber": "AI 743",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-11"
+      },
+      "arrival": {
+        "airport": "ITA",
+        "time": "12:00",
+        "date": "2025-11-11"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 687
+      },
+      "seatsAvailable": 13,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763445409663",
+      "airline": "Air Astra",
+      "flightNumber": "AI 990",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-18"
+      },
+      "arrival": {
+        "airport": "DXB",
+        "time": "12:00",
+        "date": "2025-11-18"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 482
+      },
+      "seatsAvailable": 14,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763445444985",
+      "airline": "Air Astra",
+      "flightNumber": "AI 347",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-18"
+      },
+      "arrival": {
+        "airport": "DXB",
+        "time": "12:00",
+        "date": "2025-11-18"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 334
+      },
+      "seatsAvailable": 6,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763445468065",
+      "airline": "Novo Air",
+      "flightNumber": "NO 339",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-18"
+      },
+      "arrival": {
+        "airport": "DXB",
+        "time": "12:00",
+        "date": "2025-11-18"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 362
+      },
+      "seatsAvailable": 13,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763566036203",
+      "airline": "Air Astra",
+      "flightNumber": "AI 993",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-19"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "12:00",
+        "date": "2025-11-19"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 561
+      },
+      "seatsAvailable": 8,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763566044453",
+      "airline": "Novo Air",
+      "flightNumber": "NO 658",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-19"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "12:00",
+        "date": "2025-11-19"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 209
+      },
+      "seatsAvailable": 11,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763571490197",
+      "airline": "Air Astra",
+      "flightNumber": "AI 975",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-19"
+      },
+      "arrival": {
+        "airport": "DXB",
+        "time": "12:00",
+        "date": "2025-11-19"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 657
+      },
+      "seatsAvailable": 5,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763571559632",
+      "airline": "US-Bangla Airlines",
+      "flightNumber": "US 499",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-19"
+      },
+      "arrival": {
+        "airport": "DXB",
+        "time": "12:00",
+        "date": "2025-11-19"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 414
+      },
+      "seatsAvailable": 23,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763571710233",
+      "airline": "Air Astra",
+      "flightNumber": "AI 249",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-19"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "12:00",
+        "date": "2025-11-19"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 150
+      },
+      "seatsAvailable": 14,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763829841574",
+      "airline": "Novo Air",
+      "flightNumber": "NO 960",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "MAK",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 300
+      },
+      "seatsAvailable": 21,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763829944271",
+      "airline": "Novo Air",
+      "flightNumber": "NO 898",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "MAK",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 300
+      },
+      "seatsAvailable": 11,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763829953153",
+      "airline": "Biman Bangladesh",
+      "flightNumber": "BI 441",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "MAK",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 300
+      },
+      "seatsAvailable": 17,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763829960727",
+      "airline": "Air Astra",
+      "flightNumber": "AI 641",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "MAK",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 300
+      },
+      "seatsAvailable": 21,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763830009341",
+      "airline": "Biman Bangladesh",
+      "flightNumber": "BI 425",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "MAK",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 521
+      },
+      "seatsAvailable": 11,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "FL1763830037073",
+      "airline": "Qatar Airways",
+      "flightNumber": "QA 951",
+      "departure": {
+        "airport": "Dhaka",
+        "time": "08:00",
+        "date": "2024-03-20"
+      },
+      "arrival": {
+        "airport": "Macca",
+        "time": "12:00",
+        "date": "2024-03-20"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 300
+      },
+      "seatsAvailable": 150,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763830190564",
+      "airline": "Air Astra",
+      "flightNumber": "AI 638",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "MAK",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 470
+      },
+      "seatsAvailable": 12,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763831874976",
+      "airline": "Air Astra",
+      "flightNumber": "AI 374",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "MAK",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 760
+      },
+      "seatsAvailable": 15,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763832757843",
+      "airline": "Air Astra",
+      "flightNumber": "AI 432",
+      "departure": {
+        "airport": "DHA",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "KOL",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 4299
+      },
+      "seatsAvailable": 19,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763832896358",
+      "airline": "Biman Bangladesh",
+      "flightNumber": "BI 801",
+      "departure": {
+        "airport": "DHA",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "KOL",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 4771
+      },
+      "seatsAvailable": 9,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763832908375",
+      "airline": "US-Bangla Airlines",
+      "flightNumber": "US 245",
+      "departure": {
+        "airport": "DHA",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "KOL",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 669
+      },
+      "seatsAvailable": 17,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763833320082",
+      "airline": "Novo Air",
+      "flightNumber": "NO 431",
+      "departure": {
+        "airport": "DHA",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "KOL",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 4669
+      },
+      "seatsAvailable": 23,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763833333361",
+      "airline": "Air Astra",
+      "flightNumber": "AI 173",
+      "departure": {
+        "airport": "DHA",
+        "time": "08:00",
+        "date": "2025-11-22"
+      },
+      "arrival": {
+        "airport": "KOL",
+        "time": "12:00",
+        "date": "2025-11-22"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 6888
+      },
+      "seatsAvailable": 9,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "c396",
+      "airline": "Emirates",
+      "flightNumber": "2452",
+      "aircraft": "Boeing 737",
+      "departure": {
+        "airport": "Dhaka",
+        "date": "2025-11-23",
+        "time": "08:00"
+      },
+      "arrival": {
+        "airport": "Kolkata",
+        "date": "2025-11-23",
+        "time": "12:00"
+      },
+      "duration": "0h 30m",
+      "stops": 0,
+      "price": {
+        "economy": 100
+      },
+      "seatsAvailable": 150
+    },
+    {
+      "id": "AUTO1763840064174",
+      "airline": "US-Bangla Airlines",
+      "flightNumber": "US 220",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-23"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "12:00",
+        "date": "2025-11-23"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 966
+      },
+      "seatsAvailable": 13,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763840438107",
+      "airline": "US-Bangla Airlines",
+      "flightNumber": "US 799",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-23"
+      },
+      "arrival": {
+        "airport": "DXB",
+        "time": "12:00",
+        "date": "2025-11-23"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 994
+      },
+      "seatsAvailable": 14,
+      "aircraft": "Boeing 737"
+    },
+    {
+      "id": "AUTO1763840747881",
+      "airline": "Biman Bangladesh",
+      "flightNumber": "BI 973",
+      "departure": {
+        "airport": "DAC",
+        "time": "08:00",
+        "date": "2025-11-23"
+      },
+      "arrival": {
+        "airport": "DXB",
+        "time": "12:00",
+        "date": "2025-11-23"
+      },
+      "duration": "4h 00m",
+      "stops": 0,
+      "price": {
+        "economy": 627
+      },
+      "seatsAvailable": 17,
+      "aircraft": "Boeing 737"
+    }
+  ]
+}

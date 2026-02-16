@@ -1,0 +1,68 @@
+<div class="admin-flights">
+  <div class="page-header">
+    <h1>Manage Flights</h1>
+    <button class="btn-primary" routerLink="/admin/flights/new">
+      <i class="fas fa-plus"></i>
+      Add New Flight
+    </button>
+  </div>
+
+  <div class="tools-bar">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search flights..." [(ngModel)]="searchTerm">
+    </div>
+    <div class="filters">
+      <select [(ngModel)]="airlineFilter">
+        <option value="">All Airlines</option>
+        <option *ngFor="let airline of airlines" [value]="airline">{{airline}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="flights-table">
+    <div class="table-header">
+      <div>Flight</div>
+      <div>Route</div>
+      <div>Departure</div>
+      <div>Price</div>
+      <div>Seats</div>
+      <div>Actions</div>
+    </div>
+
+    <div class="table-row" *ngFor="let flight of filteredFlights">
+      <div class="flight-info">
+        <div class="airline-logo">{{ flight.airline?.charAt(0) }}</div>
+        <div class="flight-details">
+          <h4>{{ flight.airline }}</h4>
+          <p>{{ flight.flightNumber }}</p>
+        </div>
+      </div>
+      <div class="route">
+        <strong>{{ flight.departure.airport }} → {{ flight.arrival.airport }}</strong>
+        <br>
+        <small>{{ flight.duration }}</small>
+      </div>
+      <div class="departure">
+        {{ flight.departure.date }}<br>
+        {{ flight.departure.time }}
+      </div>
+      <div class="price">${{ flight.price.economy }}</div>
+      <div class="seats">{{ flight.seatsAvailable }}</div>
+      <div class="actions">
+        <button class="btn-edit" [routerLink]="['/admin/flights/edit', flight.id]">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button class="btn-delete" (click)="deleteFlight(flight.id)">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="filteredFlights.length === 0">
+    <i class="fas fa-plane"></i>
+    <h3>No flights found</h3>
+    <p>Try adjusting your search or create a new flight</p>
+  </div>
+</div>

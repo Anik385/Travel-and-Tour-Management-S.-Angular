@@ -1,0 +1,94 @@
+{
+  "cities": [
+    {
+      "id": 1,
+      "name": "Dubai",
+      "country": "United Arab Emirates",
+      "airportCode": "DXB",
+      "description": "Luxury shopping, ultramodern architecture and a lively nightlife scene",
+      "image": "assets/images/cities/dubai.jpg",
+      "popularAttractions": ["Burj Khalifa", "Dubai Mall", "Palm Jumeirah", "Desert Safari"]
+    },
+    {
+      "id": 2,
+      "name": "London",
+      "country": "United Kingdom",
+      "airportCode": "LHR",
+      "description": "Historic and modern blend with royal palaces and world-class museums",
+      "image": "assets/images/cities/london.jpg",
+      "popularAttractions": ["Buckingham Palace", "London Eye", "Tower Bridge", "British Museum"]
+    },
+    {
+      "id": 3,
+      "name": "Singapore",
+      "country": "Singapore",
+      "airportCode": "SIN",
+      "description": "Garden city with futuristic architecture and diverse cultural experiences",
+      "image": "assets/images/cities/singapore.jpg",
+      "popularAttractions": ["Marina Bay Sands", "Gardens by the Bay", "Sentosa Island", "Orchard Road"]
+    },
+    {
+      "id": 4,
+      "name": "Tokyo",
+      "country": "Japan",
+      "airportCode": "HND",
+      "description": "Blend of traditional culture and cutting-edge technology",
+      "image": "assets/images/cities/tokyo.jpg",
+      "popularAttractions": ["Tokyo Skytree", "Sensoji Temple", "Shibuya Crossing", "Imperial Palace"]
+    },
+    {
+      "id": 5,
+      "name": "Paris",
+      "country": "France",
+      "airportCode": "CDG",
+      "description": "City of love with iconic landmarks and world-class cuisine",
+      "image": "assets/images/cities/paris.jpg",
+      "popularAttractions": ["Eiffel Tower", "Louvre Museum", "Notre-Dame", "Champs-Élysées"]
+    },
+    {
+      "id": 6,
+      "name": "Bangkok",
+      "country": "Thailand",
+      "airportCode": "BKK",
+      "description": "Vibrant street life, cultural landmarks, and delicious street food",
+      "image": "assets/images/cities/bangkok.jpg",
+      "popularAttractions": ["Grand Palace", "Wat Arun", "Chatuchak Market", "Floating Markets"]
+    },
+    {
+      "id": 7,
+      "name": "New York",
+      "country": "USA",
+      "airportCode": "JFK",
+      "description": "The city that never sleeps with iconic skyline and cultural diversity",
+      "image": "assets/images/cities/newyork.jpg",
+      "popularAttractions": ["Statue of Liberty", "Times Square", "Central Park", "Empire State Building"]
+    },
+    {
+      "id": 8,
+      "name": "Sydney",
+      "country": "Australia",
+      "airportCode": "SYD",
+      "description": "Stunning harbor, iconic opera house, and beautiful beaches",
+      "image": "assets/images/cities/sydney.jpg",
+      "popularAttractions": ["Sydney Opera House", "Harbour Bridge", "Bondi Beach", "Taronga Zoo"]
+    },
+    {
+      "id": 9,
+      "name": "Istanbul",
+      "country": "Turkey",
+      "airportCode": "IST",
+      "description": "Where East meets West with rich history and stunning architecture",
+      "image": "assets/images/cities/istanbul.jpg",
+      "popularAttractions": ["Hagia Sophia", "Blue Mosque", "Grand Bazaar", "Bosphorus Cruise"]
+    },
+    {
+      "id": 10,
+      "name": "Bali",
+      "country": "Indonesia",
+      "airportCode": "DPS",
+      "description": "Tropical paradise with beautiful beaches and spiritual culture",
+      "image": "assets/images/cities/bali.jpg",
+      "popularAttractions": ["Ubud", "Tanah Lot Temple", "Uluwatu", "Seminyak Beach"]
+    }
+  ]
+}

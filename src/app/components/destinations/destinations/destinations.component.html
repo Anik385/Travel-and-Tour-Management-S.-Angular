@@ -1,0 +1,19 @@
+<div class="destinations-container">
+  <div class="destinations-header">
+    <h1>{{ regionName }} Destinations</h1>
+    <p>Explore amazing countries in {{ regionName }}</p>
+  </div>
+
+  <div class="countries-grid">
+    <div class="country-card" *ngFor="let country of countries">
+      <img [src]="country.image" [alt]="country.name">
+      <div class="country-info">
+        <h3>{{ country.name }}</h3>
+        <p>{{ country.description }}</p>
+        <button class="explore-btn" (click)="exploreCountry(country)">
+          Explore Tours
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

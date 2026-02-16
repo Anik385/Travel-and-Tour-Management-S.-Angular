@@ -1,0 +1,121 @@
+<div class="tour-form-container">
+  <div class="form-header">
+    <h1>{{isEditMode ? 'Edit Tour' : 'Create New Tour'}}</h1>
+    <p>{{isEditMode ? 'Update tour details' : 'Add a new tour package to your offerings'}}</p>
+  </div>
+
+  <form class="tour-form" #tourForm="ngForm">
+    <div class="form-sections">
+      <!-- Basic Information -->
+      <div class="form-section">
+        <h3>Basic Information</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Tour Title *</label>
+            <input type="text" [(ngModel)]="tour.title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label>Destination *</label>
+            <select [(ngModel)]="tour.destination" name="destination" required>
+              <option value="">Select Destination</option>
+              <option value="bali">Bali, Indonesia</option>
+              <option value="tokyo">Tokyo, Japan</option>
+              <option value="paris">Paris, France</option>
+              <option value="dubai">Dubai, UAE</option>
+              <option value="Cox's Bazar">Cox's Bazar, Bangladesh</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Duration (Days) *</label>
+            <input type="number" [(ngModel)]="tour.duration" name="duration" required min="1">
+          </div>
+          <div class="form-group">
+            <label>Price ($) *</label>
+            <input type="number" [(ngModel)]="tour.price" name="price" required min="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-section">
+        <h3>Description</h3>
+        <div class="form-group">
+          <label>Tour Description *</label>
+          <textarea [(ngModel)]="tour.description" name="description" rows="4" 
+                    placeholder="Describe the tour experience..."></textarea>
+        </div>
+      </div>
+
+      <!-- Itinerary -->
+      <div class="form-section">
+        <h3>Itinerary</h3>
+        <div class="itinerary-items">
+          <div class="itinerary-item" *ngFor="let day of tour.itinerary; let i = index">
+            <div class="day-header">
+              <h4>Day {{day.day}}</h4>
+              <button type="button" class="btn-remove" (click)="removeDay(i)">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <input type="text" [(ngModel)]="day.title" [name]="'dayTitle' + i" 
+                   placeholder="Day title" class="day-title">
+            <textarea [(ngModel)]="day.description" [name]="'dayDesc' + i" 
+                      placeholder="Day description" rows="3"></textarea>
+          </div>
+        </div>
+        <button type="button" class="btn-add-day" (click)="addDay()">
+          <i class="fas fa-plus"></i> Add Day
+        </button>
+      </div>
+
+      <!-- Images -->
+      <div class="form-section">
+        <h3>Tour Images</h3>
+        <div class="image-upload">
+          <div class="upload-area">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Drag & drop images or click to browse</p>
+            <input type="file" multiple accept="image/*" (change)="onImageUpload($event)">
+          </div>
+          <div class="image-preview" *ngIf="tour.images.length > 0">
+            <div class="preview-item" *ngFor="let image of tour.images; let i = index">
+              <img [src]="image" alt="Preview">
+              <button type="button" class="btn-remove-image" (click)="removeImage(i)">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inclusions -->
+      <div class="form-section">
+        <h3>What's Included</h3>
+        <div class="inclusions-list">
+          <div class="inclusion-item" *ngFor="let inclusion of tour.inclusions; let i = index">
+            <input type="text" [(ngModel)]="tour.inclusions[i]" [name]="'inclusion' + i" 
+                   placeholder="Add inclusion">
+            <button type="button" class="btn-remove" (click)="removeInclusion(i)">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <button type="button" class="btn-add-inclusion" (click)="addInclusion()">
+            <i class="fas fa-plus"></i> Add Inclusion
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-cancel" routerLink="/admin/tours">
+        Cancel
+      </button>
+      <button type="button" class="btn-save-draft">
+        Save as Draft
+      </button>
+      <button type="submit" class="btn-publish" (click)="saveTour()">
+        {{isEditMode ? 'Update Tour' : 'Publish Tour'}}
+      </button>
+    </div>
+  </form>
+</div>

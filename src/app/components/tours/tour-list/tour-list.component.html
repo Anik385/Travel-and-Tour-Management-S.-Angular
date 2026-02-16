@@ -1,0 +1,126 @@
+<div class="tour-list">
+  <!-- Filters Section -->
+  <div class="filters-section">
+    <h2>Find Your Perfect Tour</h2>
+    
+    <div class="filters">
+      <input type="text" placeholder="Search destinations or tours..."
+             [(ngModel)]="searchTerm" 
+             (input)="applyFilters()"
+             class="search-input">
+      
+      <select [(ngModel)]="destinationFilter" (change)="applyFilters()" class="filter-select">
+        <option value="">All Destinations</option>
+        <option value="bali">Bali</option>
+        <option value="dubai">Dubai</option>
+        <option value="paris">Paris</option>
+        <!-- Add more options -->
+      </select>
+      
+      <button (click)="applyFilters()" class="filter-btn">Apply Filters</button>
+      <button (click)="clearFilters()" class="clear-btn">Clear All</button>
+    </div>
+    
+    <div class="results-info" *ngIf="filteredTours.length > 0">
+      Showing {{ filteredTours.length }} of {{ tours.length }} tours
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading tours...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="errorMessage && !isLoading" class="error-state">
+    <i class="fas fa-exclamation-triangle"></i>
+    <h3>Oops!</h3>
+    <p>{{ errorMessage }}</p>
+    <button (click)="loadTours()" class="retry-btn">Retry</button>
+  </div>
+
+  <!-- Tours Grid -->
+  <div class="tours-container" *ngIf="!isLoading && !errorMessage">
+    <div class="tours-grid">
+      <!-- Use your existing TourCardComponent -->
+      <app-tour-card 
+        *ngFor="let tour of filteredTours" 
+        [tour]="tour">
+      </app-tour-card>
+    </div>
+
+    <!-- No Results -->
+    <div *ngIf="filteredTours.length === 0 && !isLoading" class="no-tours">
+      <i class="fas fa-search"></i>
+      <h3>No tours found</h3>
+      <p>Try adjusting your search filters or 
+        <a (click)="clearFilters()">clear all filters</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<div class="tour-list">
+  <div class="filters-section">
+    <h2>Find Your Perfect Tour</h2>
+    <div class="filters">
+      <input
+        type="text"
+        placeholder="Search destinations or tours..."
+        [(ngModel)]="searchTerm"
+        class="search-input"
+      />
+
+      <select class="filter-select" [(ngModel)]="destinationFilter">
+        <option value="">All Destinations</option>
+        <option value="bali">Bali</option>
+        <option value="tokyo">Tokyo</option>
+        <option value="paris">Paris</option>
+        <option value="dubai">Dubai</option>
+        <option value="saudi">Saudi Arabia</option>
+        <option value="bangkok">Bangkok</option>
+        <option value="singapore">Singapore</option>
+        <option value="london">London</option>
+        <option value="new york">New York</option>
+        <option value="sydney">Sydney</option>
+        <option value="istanbul">Istanbul</option>
+        <option value="cape town">Cape Town</option>
+        <option value="rome">Rome</option>
+      </select>
+
+      <select class="filter-select" [(ngModel)]="durationFilter">
+        <option value="">Any Duration</option>
+        <option value="1-3">1-3 Days</option>
+        <option value="4-7">4-7 Days</option>
+        <option value="8+">8+ Days</option>
+      </select>
+
+      <button class="filter-btn" (click)="applyFilters()">Apply Filters</button>
+      <button class="clear-btn" (click)="clearFilters()">Clear All</button>
+    </div>
+
+    <div class="results-info" *ngIf="filteredTours.length > 0">
+      Showing {{ filteredTours.length }} of {{ tours.length }} tours
+    </div>
+  </div>
+
+  <div class="tours-container">
+    <div class="tours-grid">
+      <app-tour-card
+        *ngFor="let tour of filteredTours"
+        [tour]="tour"
+      ></app-tour-card>
+    </div>
+
+    <div class="no-tours" *ngIf="filteredTours.length === 0">
+      <i class="fas fa-search"></i>
+      <h3>No tours found</h3>
+      <p>
+        Try adjusting your search filters or
+        <a (click)="clearFilters()">clear all filters</a>
+      </p>
+    </div>
+  </div>
+</div> -->

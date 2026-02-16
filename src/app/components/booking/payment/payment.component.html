@@ -1,0 +1,169 @@
+<div class="payment-container">
+  <div class="booking-steps">
+    <div class="step">1. Flight Details</div>
+    <div class="step">2. Passenger Info</div>
+    <div class="step active">3. Review & Pay</div>
+    <div class="step">4. Confirmation</div>
+  </div>
+
+  <h2>Review & Pay</h2>
+  
+  <!-- Flight Summary -->
+  <div class="flight-summary-card" *ngIf="bookingData?.flight">
+    <h3>Flight Details</h3>
+    <div class="flight-info">
+      <div class="airline">{{bookingData.flight.airline}} - {{bookingData.flight.flightNumber}}</div>
+      <div class="route">
+        {{bookingData.flight.departure.airport}} → {{bookingData.flight.arrival.airport}}
+      </div>
+      <div class="datetime">
+        {{bookingData.flight.departure.date}} at {{bookingData.flight.departure.time}}
+      </div>
+    </div>
+    
+    <!-- Passengers -->
+    <div class="passengers-section" *ngIf="bookingData?.passengers">
+      <h4>Passengers ({{bookingData.passengers.length}})</h4>
+      <div class="passenger-list">
+        <div *ngFor="let passenger of bookingData.passengers" class="passenger-item">
+          {{passenger.name}} - {{passenger.email}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Price Summary -->
+  <div class="price-summary">
+    <h3>Price Summary</h3>
+    <div class="price-row">
+      <span>Base Fare x{{bookingData?.passengers?.length || 1}}</span>
+      <span>${{getBaseFare()}}</span>
+    </div>
+    <div class="price-row">
+      <span>Taxes & Fees</span>
+      <span>${{getTaxes()}}</span>
+    </div>
+    <div class="price-row total">
+      <span>Total Amount</span>
+      <span>${{getTotal()}}</span>
+    </div>
+  </div>
+
+  <!-- Payment Methods -->
+  <div class="payment-methods">
+    <h3>Select Payment Method</h3>
+    <div class="method-options">
+      <div *ngFor="let method of paymentMethods" 
+           class="method-option" 
+           [class.active]="selectedMethod === method.id"
+           (click)="selectedMethod = method.id">
+        <i class="fab {{method.icon}}"></i>
+        <span>{{method.name}}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card Form (shown only for card payment) -->
+  <div *ngIf="selectedMethod === 'card'" class="card-form">
+    <h4>Card Details</h4>
+    <div class="form-group">
+      <label>Card Number *</label>
+      <input [(ngModel)]="payment.cardNumber" 
+             (input)="formatCardNumber()"
+             placeholder="1234 5678 9012 3456" 
+             maxlength="19">
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label>Expiry Date *</label>
+        <input [(ngModel)]="payment.expiry" 
+               (input)="formatExpiry()"
+               placeholder="MM/YY" 
+               maxlength="5">
+      </div>
+      
+      <div class="form-group">
+        <label>CVV *</label>
+        <input [(ngModel)]="payment.cvv" 
+               type="password" 
+               placeholder="123" 
+               maxlength="3">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Cardholder Name *</label>
+      <input [(ngModel)]="payment.name" 
+             placeholder="John Doe">
+    </div>
+
+    <div class="form-options">
+      <label class="checkbox">
+        <input type="checkbox" [(ngModel)]="saveCard">
+        Save card for future payments
+      </label>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="actions">
+    <button class="btn-back" routerLink="/flights/passenger-details">
+      ← Back
+    </button>
+    <button class="btn-pay" 
+            (click)="processPayment()"
+            [disabled]="isProcessing">
+      {{ isProcessing ? 'Processing...' : 'Pay $' + getTotal() }}
+    </button>
+  </div>
+</div>
+
+<!-- <div class="payment-container">
+  <h2>Payment</h2>
+  
+  <div class="summary">
+    <h3>Order Summary</h3>
+    <p><strong>Flight:</strong> {{ bookingData?.flight?.airline }}</p>
+    <p><strong>Passengers:</strong> {{ bookingData?.passengers?.length }}</p>
+    <p><strong>Total:</strong> ${{ getTotal() }}</p>
+  </div>
+
+  <div class="payment-methods">
+    <h3>Select Payment Method</h3>
+    <select [(ngModel)]="payment.method">
+      <option value="card">Credit/Debit Card</option>
+      <option value="paypal">PayPal</option>
+      <option value="bank">Bank Transfer</option>
+    </select>
+  </div>
+
+  <div *ngIf="payment.method === 'card'" class="card-form">
+    <div class="form-group">
+      <label>Card Number</label>
+      <input [(ngModel)]="payment.cardNumber" placeholder="1234 5678 9012 3456">
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label>Expiry Date</label>
+        <input [(ngModel)]="payment.expiry" placeholder="MM/YY">
+      </div>
+      
+      <div class="form-group">
+        <label>CVV</label>
+        <input [(ngModel)]="payment.cvv" type="password" placeholder="123">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Cardholder Name</label>
+      <input [(ngModel)]="payment.name" placeholder="John Doe">
+    </div>
+  </div>
+
+  <div class="actions">
+    <button routerLink="/flights/passenger-details">Back</button>
+    <button (click)="processPayment()">Pay ${{ getTotal() }}</button>
+  </div>
+</div> -->

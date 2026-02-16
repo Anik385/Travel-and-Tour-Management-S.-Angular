@@ -1,0 +1,67 @@
+<div class="passenger-details">
+  <div class="booking-header">
+    <h1>Complete Your Flight Booking</h1>
+    <div class="booking-steps">
+      <div class="step active">
+        <span class="step-number">1</span>
+        <span class="step-text">Flight Details</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span class="step-text">Passenger Info</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span class="step-text">Review & Pay</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span class="step-text">Confirmation</span>
+      </div>
+    </div>
+  </div>
+  <h2>Passenger Details</h2>
+  
+  <div class="flight-summary" *ngIf="flight">
+    <h3>{{ flight.airline }} - {{ flight.flightNumber }}</h3>
+    <p>{{ flight.departure.airport }} → {{ flight.arrival.airport }}</p>
+    <p>Date: {{ flight.departure.date }} | Time: {{ flight.departure.time }}</p>
+  </div>
+
+  <form>
+    <h3>Passenger Information</h3>
+    
+    <div *ngFor="let passenger of passengers; let i = index" class="passenger-form">
+      <h4>Passenger {{ i + 1 }}</h4>
+      
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input [(ngModel)]="passenger.name" name="name{{i}}" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" [(ngModel)]="passenger.email" name="email{{i}}" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Phone *</label>
+        <input type="tel" [(ngModel)]="passenger.phone" name="phone{{i}}" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Passport Number</label>
+        <input [(ngModel)]="passenger.passport" name="passport{{i}}">
+      </div>
+      
+      <button *ngIf="passengers.length > 1" (click)="removePassenger(i)">Remove</button>
+    </div>
+    
+    <button type="button" (click)="addPassenger()">Add Another Passenger</button>
+  </form>
+
+  <div class="actions">
+    <button routerLink="/flights/booking">Back</button>
+    <button (click)="proceedToPayment()" [disabled]="!isFormValid()">Proceed to Payment</button>
+  </div>
+</div>

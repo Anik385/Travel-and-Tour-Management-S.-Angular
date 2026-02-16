@@ -1,0 +1,212 @@
+{
+  "flights": [
+    {
+      "id": "EK203",
+      "airline": "Emirates",
+      "flightNumber": "EK 203",
+      "aircraft": "Boeing 777-300ER",
+      "departure": {
+        "airport": "DXB",
+        "time": "08:00",
+        "date": "2024-03-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "12:30", 
+        "date": "2024-03-15"
+      },
+      "duration": "7h 30m",
+      "stops": 0,
+      "price": {
+        "economy": 4500,
+        "premiumEconomy": 6800,
+        "business": 12000,
+        "first": 18000
+      },
+      "seatsAvailable": 6,
+      "amenities": ["WiFi", "Entertainment", "Meals", "Power Outlets"]
+    },
+    {
+      "id": "QR001",
+      "airline": "Qatar Airways",
+      "flightNumber": "QR 001",
+      "aircraft": "Airbus A350-1000",
+      "departure": {
+        "airport": "DOH",
+        "time": "14:20",
+        "date": "2024-03-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "18:45",
+        "date": "2024-03-15"
+      },
+      "duration": "8h 25m",
+      "stops": 0,
+      "price": {
+        "economy": 5200,
+        "premiumEconomy": 7500,
+        "business": 13500,
+        "first": 20000
+      },
+      "seatsAvailable": 3,
+      "amenities": ["WiFi", "Qsuite", "Entertainment", "Gourmet Meals"]
+    },
+    {
+      "id": "BA117",
+      "airline": "British Airways",
+      "flightNumber": "BA 117",
+      "aircraft": "Boeing 787-9",
+      "departure": {
+        "airport": "DXB",
+        "time": "11:15",
+        "date": "2024-03-15"
+      },
+      "arrival": {
+        "airport": "LHR", 
+        "time": "15:00",
+        "date": "2024-03-15"
+      },
+      "duration": "7h 45m",
+      "stops": 0,
+      "price": {
+        "economy": 4800,
+        "premiumEconomy": 7200,
+        "business": 12500,
+        "first": 19000
+      },
+      "seatsAvailable": 8,
+      "amenities": ["WiFi", "Club World", "Entertainment", "Dining"]
+    },
+    {
+      "id": "SQ305",
+      "airline": "Singapore Airlines",
+      "flightNumber": "SQ 305",
+      "aircraft": "Airbus A380",
+      "departure": {
+        "airport": "SIN",
+        "time": "23:45",
+        "date": "2024-03-14"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "06:15",
+        "date": "2024-03-15"
+      },
+      "duration": "13h 30m",
+      "stops": 0,
+      "price": {
+        "economy": 5800,
+        "premiumEconomy": 8500,
+        "business": 15000,
+        "first": 22000
+      },
+      "seatsAvailable": 12,
+      "amenities": ["WiFi", "Suites", "Entertainment", "Book the Cook"]
+    },
+    {
+      "id": "TK1984",
+      "airline": "Turkish Airlines",
+      "flightNumber": "TK 1984",
+      "aircraft": "Boeing 777-300ER",
+      "departure": {
+        "airport": "IST",
+        "time": "13:30",
+        "date": "2024-03-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "15:45",
+        "date": "2024-03-15"
+      },
+      "duration": "4h 15m",
+      "stops": 0,
+      "price": {
+        "economy": 3800,
+        "premiumEconomy": 5500,
+        "business": 9800,
+        "first": 15000
+      },
+      "seatsAvailable": 15,
+      "amenities": ["WiFi", "Entertainment", "Turkish Delight", "Chef Service"]
+    },
+    {
+      "id": "LH957",
+      "airline": "Lufthansa",
+      "flightNumber": "LH 957",
+      "aircraft": "Airbus A350-900",
+      "departure": {
+        "airport": "FRA",
+        "time": "09:45",
+        "date": "2024-03-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "10:30",
+        "date": "2024-03-15"
+      },
+      "duration": "1h 45m",
+      "stops": 0,
+      "price": {
+        "economy": 3200,
+        "premiumEconomy": 4800,
+        "business": 8500,
+        "first": 12000
+      },
+      "seatsAvailable": 20,
+      "amenities": ["WiFi", "Entertainment", "German Hospitality", "Efficient Service"]
+    },
+    {
+      "id": "AF1381",
+      "airline": "Air France",
+      "flightNumber": "AF 1381",
+      "aircraft": "Boeing 787-9",
+      "departure": {
+        "airport": "CDG",
+        "time": "07:30",
+        "date": "2024-03-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "07:55",
+        "date": "2024-03-15"
+      },
+      "duration": "1h 25m",
+      "stops": 0,
+      "price": {
+        "economy": 2900,
+        "premiumEconomy": 4200,
+        "business": 7800,
+        "first": 11000
+      },
+      "seatsAvailable": 25,
+      "amenities": ["WiFi", "Entertainment", "French Cuisine", "La Première"]
+    },
+    {
+      "id": "EY011",
+      "airline": "Etihad Airways",
+      "flightNumber": "EY 011",
+      "aircraft": "Boeing 787-9",
+      "departure": {
+        "airport": "AUH",
+        "time": "02:15",
+        "date": "2024-03-15"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "06:45",
+        "date": "2024-03-15"
+      },
+      "duration": "7h 30m",
+      "stops": 0,
+      "price": {
+        "economy": 4700,
+        "premiumEconomy": 6900,
+        "business": 12800,
+        "first": 19500
+      },
+      "seatsAvailable": 5,
+      "amenities": ["WiFi", "The Residence", "Entertainment", "Dine Anytime"]
+    }
+  ]
+}

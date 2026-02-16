@@ -1,0 +1,167 @@
+.bookings-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.bookings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  
+  h1 {
+    color: #333;
+  }
+}
+
+.booking-filters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  
+  &.active {
+    background: #2c5aa0;
+    color: white;
+    border-color: #2c5aa0;
+  }
+  
+  &:hover:not(.active) {
+    border-color: #999;
+  }
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.booking-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  display: flex;
+  overflow: hidden;
+}
+
+.booking-image {
+  position: relative;
+  width: 200px;
+  flex-shrink: 0;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.booking-status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: white;
+  
+  &.confirmed {
+    background: #27ae60;
+  }
+  
+  &.completed {
+    background: #7f8c8d;
+  }
+  
+  &.cancelled {
+    background: #e74c3c;
+  }
+}
+
+.booking-details {
+  flex: 1;
+  padding: 1.5rem;
+  
+  h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+  }
+}
+
+.booking-location {
+  color: #666;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.booking-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.booking-reference {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.booking-actions {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  border-left: 1px solid #eee;
+}
+
+.booking-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c5aa0;
+}
+
+.btn-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  
+  &:hover {
+    background: #f8f9fa;
+  }
+  
+  &.cancel {
+    color: #e74c3c;
+    border-color: #e74c3c;
+    
+    &:hover {
+      background: #e74c3c;
+      color: white;
+    }
+  }
+}

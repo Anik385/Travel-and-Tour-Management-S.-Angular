@@ -1,0 +1,150 @@
+<div class="profile-container">
+  <h2>My Profile</h2>
+  
+  <!-- Success/Error Messages -->
+  <div *ngIf="message" class="message" [class.success]="message.type === 'success'" 
+                                      [class.error]="message.type === 'error'">
+    {{ message.text }}
+  </div>
+  
+  <!-- Profile Header -->
+  <div *ngIf="user" class="profile-header">
+    <div class="avatar">
+      {{ user.firstName?.charAt(0) || user.username?.charAt(0) }}
+    </div>
+    <div class="user-info">
+      <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+      <p><i>👤</i> {{ user.username }}</p>
+      <p><i>🎯</i> {{ user.role?.replace('ROLE_', '') }}</p>
+    </div>
+  </div>
+  
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading profile...</p>
+  </div>
+  
+  <!-- Profile Form -->
+  <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+    <!-- Personal Information Section -->
+    <div class="form-section">
+      <h3>Personal Information</h3>
+      
+      <div class="form-group">
+        <label>First Name *</label>
+        <input type="text" formControlName="firstName" [class.is-invalid]="firstName?.invalid && firstName?.touched">
+        <div *ngIf="firstName?.invalid && firstName?.touched" class="error-message">
+          <span *ngIf="firstName?.errors?.['required']">First name is required</span>
+          <span *ngIf="firstName?.errors?.['minlength']">Minimum 2 characters required</span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Last Name *</label>
+        <input type="text" formControlName="lastName" [class.is-invalid]="lastName?.invalid && lastName?.touched">
+        <div *ngIf="lastName?.invalid && lastName?.touched" class="error-message">
+          <span *ngIf="lastName?.errors?.['required']">Last name is required</span>
+          <span *ngIf="lastName?.errors?.['minlength']">Minimum 2 characters required</span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" formControlName="email" [class.is-invalid]="email?.invalid && email?.touched">
+        <div *ngIf="email?.invalid && email?.touched" class="error-message">
+          <span *ngIf="email?.errors?.['required']">Email is required</span>
+          <span *ngIf="email?.errors?.['email']">Please enter a valid email</span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" formControlName="phone" [class.is-invalid]="phone?.invalid && phone?.touched">
+        <div *ngIf="phone?.invalid && phone?.touched" class="error-message">
+          <span *ngIf="phone?.errors?.['pattern']">Please enter a valid phone number</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Change Password Section -->
+    <div class="form-section">
+      <h3>Change Password</h3>
+      <p class="section-description">Leave empty to keep current password</p>
+      
+      <div class="form-group">
+        <label>New Password</label>
+        <input type="password" formControlName="password" [class.is-invalid]="password?.invalid && password?.touched">
+        
+        <!-- Password Strength Indicator -->
+        <div *ngIf="password?.value && !password?.errors?.['minlength']" class="password-strength">
+          <div class="strength-bar">
+            <div class="strength-fill" [class.weak]="passwordStrength === 'weak'"
+                                      [class.medium]="passwordStrength === 'medium'"
+                                      [class.strong]="passwordStrength === 'strong'"></div>
+          </div>
+          <div class="strength-text" [class]="passwordStrength">
+            Password strength: {{ passwordStrength | titlecase }}
+          </div>
+        </div>
+        
+        <div *ngIf="password?.invalid && password?.touched" class="error-message">
+          <span *ngIf="password?.errors?.['minlength']">Minimum 6 characters required</span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" 
+               [class.is-invalid]="confirmPassword?.invalid && confirmPassword?.touched">
+        <div *ngIf="confirmPassword?.invalid && confirmPassword?.touched" class="error-message">
+          <span *ngIf="confirmPassword?.errors?.['passwordMismatch']">Passwords do not match</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="!profileForm.valid || isLoading">
+      <span *ngIf="isLoading">Updating...</span>
+      <span *ngIf="!isLoading">Update Profile</span>
+    </button>
+  </form>
+</div>
+
+<!-- <div class="profile-container">
+  <h2>My Profile</h2>
+  
+  <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" formControlName="firstName">
+    </div>
+    
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" formControlName="lastName">
+    </div>
+    
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" formControlName="email">
+    </div>
+    
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" formControlName="phone">
+    </div>
+    
+    <h3>Change Password</h3>
+    <div class="form-group">
+      <label>New Password</label>
+      <input type="password" formControlName="password">
+    </div>
+    
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input type="password" formControlName="confirmPassword">
+    </div>
+    
+    <button type="submit" [disabled]="!profileForm.valid">Update Profile</button>
+  </form>
+</div> -->

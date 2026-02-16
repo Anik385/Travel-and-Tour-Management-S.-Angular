@@ -1,0 +1,65 @@
+<div class="bookings-container">
+  <div class="bookings-header">
+    <h1>My Bookings</h1>
+    <div class="booking-filters">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Upcoming</button>
+      <button class="filter-btn">Completed</button>
+      <button class="filter-btn">Cancelled</button>
+    </div>
+  </div>
+
+  <div class="bookings-list">
+    <div class="booking-card" *ngFor="let booking of bookings">
+      <div class="booking-image">
+        <img [src]="booking.image" [alt]="booking.title">
+        <div class="booking-status" [class]="booking.status">
+          {{booking.status}}
+        </div>
+      </div>
+      
+      <div class="booking-details">
+        <h3>{{booking.title}}</h3>
+        <p class="booking-location">
+          <i class="fas fa-map-marker-alt"></i>
+          {{booking.destination}}
+        </p>
+        
+        <div class="booking-meta">
+          <div class="meta-item">
+            <i class="far fa-calendar"></i>
+            <span>{{booking.date}}</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-users"></i>
+            <span>{{booking.guests}} guests</span>
+          </div>
+          <div class="meta-item">
+            <i class="far fa-clock"></i>
+            <span>{{booking.duration}} days</span>
+          </div>
+        </div>
+        
+        <div class="booking-reference">
+          Reference: <strong>{{booking.reference}}</strong>
+        </div>
+      </div>
+      
+      <div class="booking-actions">
+        <div class="booking-price">${{booking.total}}</div>
+        <button class="btn-action" *ngIf="booking.status === 'confirmed'">
+          <i class="fas fa-download"></i>
+          Voucher
+        </button>
+        <button class="btn-action" *ngIf="booking.status === 'completed'">
+          <i class="fas fa-star"></i>
+          Review
+        </button>
+        <button class="btn-action cancel" *ngIf="booking.status === 'confirmed'">
+          <i class="fas fa-times"></i>
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

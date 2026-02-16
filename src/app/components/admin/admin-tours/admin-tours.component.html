@@ -1,0 +1,118 @@
+<div class="admin-tours">
+  <div class="page-header">
+    <h1>Manage Tours ({{filteredTours.length}})</h1>
+    <button class="btn-primary" routerLink="/admin/tours/new">
+      <i class="fas fa-plus"></i>
+      Add New Tour
+    </button>
+    <button class="btn-refresh" (click)="loadTours()" [disabled]="isLoading">
+      <i class="fas fa-sync-alt" [class.fa-spin]="isLoading"></i>
+      Refresh
+    </button>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" *ngIf="isLoading">
+    <i class="fas fa-spinner fa-spin"></i>
+    <p>Loading tours...</p>
+  </div>
+
+  <!-- Content when loaded -->
+  <div *ngIf="!isLoading">
+    <div class="tools-bar">
+      <!-- Keep existing search/filter code -->
+    </div>
+
+    <div class="tours-table">
+      <!-- Keep existing table code -->
+    </div>
+
+    <div class="empty-state" *ngIf="filteredTours.length === 0">
+      <i class="fas fa-plane"></i>
+      <h3>No tours found</h3>
+      <p *ngIf="tours.length === 0">No tours available. Create your first tour!</p>
+      <p *ngIf="tours.length > 0">No tours match your search criteria</p>
+      <button class="btn-primary" routerLink="/admin/tours/new">
+        Create New Tour
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="admin-tours">
+  <div class="page-header">
+    <h1>Manage Tours</h1>
+    <button class="btn-primary" routerLink="/admin/tours/new">
+      <i class="fas fa-plus"></i>
+      Add New Tour
+    </button>
+  </div>
+
+  <div class="tools-bar">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search tours..." [value]="searchTerm" (input)="searchTerm = $any($event.target).value">
+    </div>
+    <div class="filters">
+      <select [value]="statusFilter" (change)="statusFilter = $any($event.target).value">
+        <option value="">All Status</option>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+      </select>
+      <select [value]="destinationFilter" (change)="destinationFilter = $any($event.target).value">
+        <option value="">All Destinations</option>
+        <option value="bali">Bali</option>
+        <option value="tokyo">Tokyo</option>
+        <option value="paris">Paris</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="tours-table">
+    <div class="table-header">
+      <div>Tour</div>
+      <div>Destination</div>
+      <div>Price</div>
+      <div>Duration</div>
+      <div>Status</div>
+      <div>Actions</div>
+    </div>
+
+    <div class="table-row" *ngFor="let tour of filteredTours">
+      <div class="tour-info">
+        <img [src]="tour.image" [alt]="tour.title">
+        <div class="tour-details">
+          <h4>{{tour.title}}</h4>
+          <p>{{tour.description}}</p>
+        </div>
+      </div>
+      <div class="destination">{{tour.destination}}</div>
+      <div class="price">${{tour.price}}</div>
+      <div class="duration">{{tour.duration}} days</div>
+      <div class="status">
+        <span [class]="tour.status" class="status-badge">{{tour.status}}</span>
+      </div>
+      <div class="actions">
+        <button class="btn-edit" [routerLink]="['/admin/tours/edit', tour.id]">
+          <i class="fas fa-edit"></i>
+        </button>
+        <button class="btn-delete" (click)="deleteTour(tour.id)">
+          <i class="fas fa-trash"></i>
+        </button>
+        <button class="btn-toggle" (click)="toggleTourStatus(tour.id)">
+          <i class="fas" [class.fa-eye]="tour.status === 'active'" 
+             [class.fa-eye-slash]="tour.status === 'inactive'"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="filteredTours.length === 0">
+    <i class="fas fa-plane"></i>
+    <h3>No tours found</h3>
+    <p>Try adjusting your search or create a new tour</p>
+    <button class="btn-primary" routerLink="/admin/tours/new">
+      Create Your First Tour
+    </button>
+  </div>
+</div> -->

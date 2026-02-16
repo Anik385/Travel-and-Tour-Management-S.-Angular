@@ -1,0 +1,235 @@
+.checkout-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.checkout-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ddd;
+    z-index: 1;
+  }
+}
+
+.step {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  background: white;
+  padding: 0 1rem;
+  color: #999;
+  
+  &.active {
+    color: #2c5aa0;
+    font-weight: 600;
+  }
+}
+
+.checkout-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.order-summary {
+  h3 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+}
+
+.summary-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tour-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+}
+
+.tour-info {
+  h4 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+  }
+  
+  p {
+    margin: 0.25rem 0;
+    color: #666;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: #2c5aa0;
+    margin-top: 0.5rem;
+  }
+}
+
+.price-breakdown {
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: #666;
+    
+    &.total {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #333;
+      border-top: 1px solid #eee;
+      padding-top: 0.5rem;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.payment-form {
+  h3 {
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+}
+
+.payment-methods {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.payment-method {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  
+  &.active {
+    border-color: #2c5aa0;
+    background: #f8faff;
+  }
+  
+  &:hover:not(.active) {
+    border-color: #999;
+  }
+}
+
+.card-form {
+  .form-group {
+    margin-bottom: 1.5rem;
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #333;
+      font-weight: 500;
+    }
+    
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      
+      &:focus {
+        outline: none;
+        border-color: #2c5aa0;
+      }
+    }
+  }
+}
+
+// .form-row {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   gap: 1rem;
+// }
+.form-row {
+  display: flex;
+  gap: 15px;
+  
+  .form-group {
+    flex: 1;
+  }
+}
+
+// .pay-btn {
+//   width: 100%;
+//   background: #27ae60;
+//   color: white;
+//   border: none;
+//   padding: 1rem 2rem;
+//   border-radius: 5px;
+//   font-size: 1.1rem;
+//   font-weight: bold;
+//   cursor: pointer;
+//   transition: background 0.3s;
+  
+//   &:hover {
+//     background: #219653;
+//   }
+// }
+.pay-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+  
+  &:hover:not(:disabled) {
+    background: #45a049;
+  }
+  
+  &:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.error-text {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: #d32f2f;
+  background-color: #fff9f9;
+}

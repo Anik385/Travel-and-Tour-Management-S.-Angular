@@ -1,0 +1,141 @@
+<div class="admin-bookings">
+  <div class="page-header">
+    <h2>Manage Bookings</h2>
+    <button class="btn-refresh" (click)="loadBookings()" [disabled]="isLoading">
+      <i class="fas fa-sync-alt" [class.fa-spin]="isLoading"></i>
+      Refresh
+    </button>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" *ngIf="isLoading">
+    <i class="fas fa-spinner fa-spin"></i>
+    <p>Loading bookings...</p>
+  </div>
+
+  <!-- Content -->
+  <div *ngIf="!isLoading">
+    <div class="stats">
+      <div class="stat-card">
+        <h3>{{ bookings.length }}</h3>
+        <p>Total Bookings</p>
+      </div>
+      <div class="stat-card">
+        <h3>${{ getTotalRevenue() }}</h3>
+        <p>Total Revenue</p>
+      </div>
+    </div>
+
+    <div class="filters">
+      <select [(ngModel)]="statusFilter">
+        <option value="">All Status</option>
+        <option value="CONFIRMED">Confirmed</option>
+        <option value="CANCELLED">Cancelled</option>
+        <option value="COMPLETED">Completed</option>
+        <option value="PENDING">Pending</option>
+      </select>
+      <span class="filter-info">Showing {{ filteredBookings.length }} of {{ bookings.length }} bookings</span>
+    </div>
+
+    <table *ngIf="filteredBookings.length > 0">
+      <thead>
+        <tr>
+          <th>Reference</th>
+          <th>Customer</th>
+          <th>Tour/Flight</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of filteredBookings">
+          <td><strong>{{ booking.bookingReference }}</strong></td>
+          <td>{{ booking.userName }}</td>
+          <td>{{ booking.tourName || booking.flightName || 'N/A' }}</td>
+          <td>{{ booking.travelDate }}</td>
+          <td><strong>${{ booking.totalAmount }}</strong></td>
+          <td>
+            <span class="status-badge" [class]="booking.status.toLowerCase()">
+              {{ booking.status }}
+            </span>
+          </td>
+          <td class="actions">
+            <button class="btn-confirm" (click)="updateStatus(booking.id, 'CONFIRMED')" 
+                    [disabled]="booking.status === 'CONFIRMED'">
+              <i class="fas fa-check"></i>
+            </button>
+            <button class="btn-cancel" (click)="updateStatus(booking.id, 'CANCELLED')"
+                    [disabled]="booking.status === 'CANCELLED'">
+              <i class="fas fa-times"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="empty-state" *ngIf="filteredBookings.length === 0">
+      <i class="fas fa-calendar-times"></i>
+      <h3>No bookings found</h3>
+      <p *ngIf="bookings.length === 0">No bookings have been made yet</p>
+      <p *ngIf="bookings.length > 0">No bookings match your filter criteria</p>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="admin-bookings">
+  <h2>Manage Bookings</h2>
+  
+  <div class="stats">
+    <div class="stat-card">
+      <h3>{{ bookings.length }}</h3>
+      <p>Total Bookings</p>
+    </div>
+    <div class="stat-card">
+      <h3>${{ getTotalRevenue() }}</h3>
+      <p>Total Revenue</p>
+    </div>
+  </div>
+
+  <div class="filters">
+    <select [(ngModel)]="statusFilter">
+      <option value="">All Status</option>
+      <option value="CONFIRMED">Confirmed</option>
+      <option value="CANCELLED">Cancelled</option>
+      <option value="COMPLETED">Completed</option>
+    </select>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Reference</th>
+        <th>Customer</th>
+        <th>Tour/Flight</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of filteredBookings">
+        <td>{{ booking.bookingReference }}</td>
+        <td>{{ booking.userName }}</td>
+        <td>{{ booking.tourName || booking.flightName }}</td>
+        <td>{{ booking.travelDate }}</td>
+        <td>${{ booking.totalAmount }}</td>
+        <td>
+          <span class="status-badge" [class]="booking.status.toLowerCase()">
+            {{ booking.status }}
+          </span>
+        </td>
+        <td>
+          <button (click)="updateStatus(booking.id, 'CONFIRMED')">Confirm</button>
+          <button (click)="updateStatus(booking.id, 'CANCELLED')">Cancel</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

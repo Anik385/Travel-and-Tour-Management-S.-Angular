@@ -1,0 +1,82 @@
+<div class="booking-container">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading tour details...</p>
+  </div>
+
+  <!-- Booking Content -->
+  <div *ngIf="!isLoading && tour" class="booking-content">
+    <div class="tour-summary">
+      <h3>Tour Summary</h3>
+      <div class="summary-card">
+        <img [src]="tour.images[0]" [alt]="tour.title">
+        <div class="summary-details">
+          <h4>{{ tour.title }}</h4>
+          <p><i class="fas fa-map-marker-alt"></i> {{ tour.destination }}</p>
+          <p><i class="far fa-clock"></i> {{ tour.duration }} days</p>
+          <div class="price">${{ tour.price }} per person</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Form -->
+    <div class="booking-form">
+      <h3>Guest Information</h3>
+      
+      <form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
+        <!-- Guest Details -->
+        <div class="form-section">
+          <h4>Travel Details</h4>
+          
+          <div class="form-group">
+            <label>Travel Date *</label>
+            <input type="date" 
+                   [(ngModel)]="bookingData.travelDate" 
+                   name="travelDate"
+                   required
+                   [min]="getTodayDate()">
+          </div>
+          
+          <div class="form-group">
+            <label>Number of Guests *</label>
+            <input type="number" 
+                   [(ngModel)]="bookingData.numberOfGuests"
+                   (change)="updateTotalAmount()"
+                   name="numberOfGuests"
+                   min="1" max="10"
+                   required>
+          </div>
+          
+          <div class="form-group">
+            <label>Special Requirements</label>
+            <textarea placeholder="Any special requests"></textarea>
+          </div>
+        </div>
+
+        <!-- Price Summary -->
+        <div class="price-summary">
+          <h4>Price Breakdown</h4>
+          <div class="price-row">
+            <span>Tour Price x{{ bookingData.numberOfGuests }}</span>
+            <span>${{ (tour.price || 0) * bookingData.numberOfGuests }}</span>
+          </div>
+          <div class="price-row total">
+            <span>Total Amount</span>
+            <span>${{ bookingData.totalAmount }}</span>
+          </div>
+        </div>
+
+        <!-- Booking Actions -->
+        <div class="booking-actions">
+          <button type="button" class="btn-back" routerLink="/tours/{{tourId}}">
+            Back to Tour
+          </button>
+          <button type="submit" class="btn-continue" [disabled]="isSubmitting">
+            {{ isSubmitting ? 'Processing...' : 'Confirm Booking' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

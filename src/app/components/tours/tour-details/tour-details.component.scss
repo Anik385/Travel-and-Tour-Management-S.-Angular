@@ -1,0 +1,136 @@
+.tour-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 3rem;
+}
+
+.tour-gallery {
+  .main-image {
+    img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  }
+  
+  .image-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    
+    img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+.tour-info {
+  h1 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+}
+
+.tour-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  color: #666;
+  
+  span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.tour-description, .tour-itinerary, .tour-inclusions {
+  margin-bottom: 2rem;
+  
+  h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #2c5aa0;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.itinerary-day {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 5px;
+  
+  h4 {
+    margin: 0 0 0.5rem 0;
+    color: #2c5aa0;
+  }
+}
+
+.inclusion-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  
+  i {
+    color: #27ae60;
+  }
+}
+
+.booking-section {
+  position: sticky;
+  top: 2rem;
+}
+
+.price-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  
+  h3 {
+    margin: 0 0 1rem 0;
+    color: #333;
+  }
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c5aa0;
+  margin-bottom: 1.5rem;
+  
+  span {
+    font-size: 1rem;
+    color: #666;
+    font-weight: normal;
+  }
+}
+
+.book-now-btn {
+  width: 100%;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  
+  &:hover {
+    background: #c0392b;
+  }
+}

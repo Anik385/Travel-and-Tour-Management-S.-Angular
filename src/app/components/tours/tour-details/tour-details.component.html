@@ -1,0 +1,73 @@
+<div class="tour-details" *ngIf="!isLoading && tour">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading tour details...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="errorMessage" class="error-state">
+    <i class="fas fa-exclamation-triangle"></i>
+    <h3>{{ errorMessage }}</h3>
+    <p>Redirecting to tours list...</p>
+  </div>
+
+  <!-- Tour Content -->
+  <div *ngIf="tour && !isLoading" class="tour-content">
+    <!-- Tour Gallery -->
+    <div class="tour-gallery">
+      <div class="main-image">
+        <img [src]="tour.images[0]" [alt]="tour.title">
+      </div>
+      <div class="image-thumbnails" *ngIf="tour.images.length > 1">
+        <img *ngFor="let img of tour.images.slice(1,5)" 
+             [src]="img" [alt]="tour.title">
+      </div>
+    </div>
+
+    <!-- Tour Info -->
+    <div class="tour-info">
+      <h1>{{ tour.title }}</h1>
+      
+      <div class="tour-meta">
+        <span><i class="fas fa-map-marker-alt"></i> {{ tour.destination }}</span>
+        <span><i class="far fa-clock"></i> {{ tour.duration }} days</span>
+        <span><i class="fas fa-star"></i> 4.8 (124 reviews)</span>
+      </div>
+
+      <div class="tour-description">
+        <h3>Overview</h3>
+        <p>{{ tour.description }}</p>
+      </div>
+
+      <!-- Itinerary -->
+      <div class="tour-itinerary" *ngIf="tour.itinerary">
+        <h3>Itinerary</h3>
+        <div class="itinerary-day" *ngFor="let day of tour.itinerary">
+          <h4>Day {{ day.day }}: {{ day.title }}</h4>
+          <p>{{ day.description }}</p>
+        </div>
+      </div>
+
+      <!-- Inclusions -->
+      <div class="tour-inclusions" *ngIf="tour.inclusions">
+        <h3>What's Included</h3>
+        <div class="inclusion-list">
+          <div class="inclusion-item" *ngFor="let inclusion of tour.inclusions">
+            <i class="fas fa-check"></i>
+            <span>{{ inclusion }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Section -->
+      <div class="booking-section">
+        <div class="price-card">
+          <h3>Tour Price</h3>
+          <div class="price">${{ tour.price }} <span>per person</span></div>
+          <button class="book-now-btn" (click)="bookTour()">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

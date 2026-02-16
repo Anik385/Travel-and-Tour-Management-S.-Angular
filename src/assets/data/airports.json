@@ -1,0 +1,109 @@
+{
+  "airports": [
+    {
+      "code": "DXB",
+      "name": "Dubai International Airport",
+      "city": "Dubai",
+      "country": "United Arab Emirates",
+      "timezone": "+4"
+    },
+    {
+      "code": "LHR",
+      "name": "Heathrow Airport",
+      "city": "London",
+      "country": "United Kingdom", 
+      "timezone": "+0"
+    },
+    {
+      "code": "DOH",
+      "name": "Hamad International Airport",
+      "city": "Doha",
+      "country": "Qatar",
+      "timezone": "+3"
+    },
+    {
+      "code": "SIN",
+      "name": "Changi Airport",
+      "city": "Singapore",
+      "country": "Singapore",
+      "timezone": "+8"
+    },
+    {
+      "code": "BKK",
+      "name": "Suvarnabhumi Airport",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "timezone": "+7"
+    },
+    {
+      "code": "CDG",
+      "name": "Charles de Gaulle Airport",
+      "city": "Paris",
+      "country": "France",
+      "timezone": "+1"
+    },
+    {
+      "code": "JFK",
+      "name": "John F. Kennedy Airport",
+      "city": "New York",
+      "country": "USA",
+      "timezone": "-5"
+    },
+    {
+      "code": "SYD",
+      "name": "Sydney Airport",
+      "city": "Sydney",
+      "country": "Australia",
+      "timezone": "+10"
+    },
+    {
+      "code": "HND",
+      "name": "Haneda Airport",
+      "city": "Tokyo",
+      "country": "Japan",
+      "timezone": "+9"
+    },
+    {
+      "code": "JED",
+      "name": "King Abdulaziz Airport",
+      "city": "Jeddah",
+      "country": "Saudi Arabia",
+      "timezone": "+3"
+    },
+    {
+      "code": "IST",
+      "name": "Istanbul Airport",
+      "city": "Istanbul",
+      "country": "Turkey",
+      "timezone": "+3"
+    },
+    {
+      "code": "FRA",
+      "name": "Frankfurt Airport",
+      "city": "Frankfurt",
+      "country": "Germany",
+      "timezone": "+1"
+    },
+    {
+      "code": "ICN",
+      "name": "Incheon Airport",
+      "city": "Seoul",
+      "country": "South Korea",
+      "timezone": "+9"
+    },
+    {
+      "code": "YYZ",
+      "name": "Toronto Pearson Airport",
+      "city": "Toronto",
+      "country": "Canada",
+      "timezone": "-5"
+    },
+    {
+      "code": "AMS",
+      "name": "Schiphol Airport",
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "timezone": "+1"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+<div class="checkout-container">
+  <div class="checkout-steps">
+    <div class="step">1. Tour Details</div>
+    <div class="step">2. Guest Info</div>
+    <div class="step active">3. Payment</div>
+    <div class="step">4. Confirmation</div>
+  </div>
+
+  <div class="checkout-content">
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <div class="summary-card">
+        <div class="tour-item">
+          <img [src]="booking.tour.image" [alt]="booking.tour.title">
+          <div class="tour-info">
+            <h4>{{booking.tour.title}}</h4>
+            <p>{{booking.guests}} guests • {{booking.date}}</p>
+            <div class="price">${{booking.total}}</div>
+          </div>
+        </div>
+        
+        <div class="price-breakdown">
+          <div class="price-row">
+            <span>Tour Price x{{booking.guests}}</span>
+            <span>${{booking.subtotal}}</span>
+          </div>
+          <div class="price-row">
+            <span>Taxes & Fees</span>
+            <span>${{booking.taxes}}</span>
+          </div>
+          <div class="price-row total">
+            <span>Total</span>
+            <span>${{booking.total}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="payment-form">
+      <h3>Payment Method</h3>
+      
+      <div class="payment-methods">
+        <div class="payment-method active">
+          <i class="fab fa-cc-visa"></i>
+          <span>Credit/Debit Card</span>
+        </div>
+        <div class="payment-method">
+          <i class="fab fa-paypal"></i>
+          <span>PayPal</span>
+        </div>
+      </div>
+
+      <form class="card-form" #paymentForm="ngForm" (ngSubmit)="processPayment()">
+        <div class="form-group">
+          <label>Card Number *</label>
+          <input type="text" 
+                 [(ngModel)]="payment.cardNumber" 
+                 name="cardNumber" 
+                 placeholder="1234 5678 9012 3456" 
+                 pattern="[0-9\s]{16,19}" 
+                 maxlength="19"
+                 (input)="formatCardNumber()"
+                 required>
+          <small *ngIf="formSubmitted && !payment.cardNumber" class="error-text">
+            Card number is required (16 digits)
+          </small>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>Expiry Date *</label>
+            <input type="text" 
+                   [(ngModel)]="payment.expiry" 
+                   name="expiry" 
+                   placeholder="MM/YY" 
+                   pattern="(0[1-9]|1[0-2])\/\d{2}" 
+                   maxlength="5"
+                   (input)="formatExpiry()"
+                   required>
+            <small *ngIf="formSubmitted && !payment.expiry" class="error-text">
+              MM/YY format required
+            </small>
+          </div>
+          <div class="form-group">
+            <label>CVV *</label>
+            <input type="password" 
+                   [(ngModel)]="payment.cvv" 
+                   name="cvv" 
+                   placeholder="123" 
+                   pattern="\d{3}" 
+                   maxlength="3"
+                   required>
+            <small *ngIf="formSubmitted && !payment.cvv" class="error-text">
+              3-digit CVV required
+            </small>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Cardholder Name *</label>
+          <input type="text" 
+                 [(ngModel)]="payment.name" 
+                 name="cardName" 
+                 placeholder="Enter full name" 
+                 required>
+          <small *ngIf="formSubmitted && !payment.name" class="error-text">
+            Cardholder name is required
+          </small>
+        </div>
+
+        <div class="form-options">
+          <label class="checkbox">
+            <input type="checkbox" [(ngModel)]="saveCard" name="saveCard">
+            Save card for future payments
+          </label>
+        </div>
+
+        <button type="submit" 
+                class="pay-btn" 
+                [disabled]="isProcessing || (formSubmitted && !paymentForm.valid)">
+          {{ isProcessing ? 'Processing...' : 'Pay $' + (booking.total || 0) }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="checkout-container">
+  <div class="checkout-steps">
+    <div class="step">1. Tour Details</div>
+    <div class="step">2. Guest Info</div>
+    <div class="step active">3. Payment</div>
+    <div class="step">4. Confirmation</div>
+  </div>
+
+  <div class="checkout-content">
+    <div class="order-summary">
+      <h3>Order Summary</h3>
+      <div class="summary-card">
+        <div class="tour-item">
+          <img [src]="booking.tour.image" [alt]="booking.tour.title">
+          <div class="tour-info">
+            <h4>{{booking.tour.title}}</h4>
+            <p>{{booking.guests}} guests • {{booking.date}}</p>
+            <div class="price">${{booking.total}}</div>
+          </div>
+        </div>
+        
+        <div class="price-breakdown">
+          <div class="price-row">
+            <span>Tour Price x{{booking.guests}}</span>
+            <span>${{booking.subtotal}}</span>
+          </div>
+          <div class="price-row">
+            <span>Taxes & Fees</span>
+            <span>${{booking.taxes}}</span>
+          </div>
+          <div class="price-row total">
+            <span>Total</span>
+            <span>${{booking.total}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="payment-form">
+      <h3>Payment Method</h3>
+      
+      <div class="payment-methods">
+        <div class="payment-method active">
+          <i class="fab fa-cc-visa"></i>
+          <span>Credit/Debit Card</span>
+        </div>
+        <div class="payment-method">
+          <i class="fab fa-paypal"></i>
+          <span>PayPal</span>
+        </div>
+      </div>
+
+      <form class="card-form">
+        <div class="form-group">
+          <label>Card Number</label>
+          <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>Expiry Date</label>
+            <input type="text" placeholder="MM/YY" maxlength="5">
+          </div>
+          <div class="form-group">
+            <label>CVV</label>
+            <input type="text" placeholder="123" maxlength="3">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Cardholder Name</label>
+          <input type="text" placeholder="Enter full name">
+        </div>
+
+        <div class="form-options">
+          <label class="checkbox">
+            <input type="checkbox" checked>
+            Save card for future payments
+          </label>
+        </div>
+
+        <button type="submit" class="pay-btn" routerLink="/booking-confirmation">
+          Pay ${{booking.total}}
+        </button>
+      </form>
+    </div>
+  </div>
+</div> -->

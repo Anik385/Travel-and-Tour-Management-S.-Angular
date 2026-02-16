@@ -1,0 +1,139 @@
+.flight-form-container {
+  max-width: 950px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  font-family: "Inter", sans-serif;
+  color: #333;
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 30px;
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 8px 0 0;
+      font-size: 15px;
+      color: #666;
+    }
+  }
+
+  .flight-form {
+    .form-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .form-section {
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #eee;
+      background: #fafafa;
+
+      h3 {
+        margin: 0 0 15px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #444;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+
+          label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+          }
+
+          input,
+          select {
+            padding: 12px 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+
+            &:focus {
+              border-color: #007bff;
+              box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+            }
+          }
+        }
+      }
+    }
+
+    .form-actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+
+      .btn-cancel,
+      .btn-save {
+        padding: 12px 24px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        transition: 0.2s;
+      }
+
+      .btn-cancel {
+        background: #f2f2f2;
+        color: #555;
+
+        &:hover {
+          background: #e0e0e0;
+        }
+      }
+
+      .btn-save {
+        background: #007bff;
+        color: #fff;
+
+        &:hover {
+          background: #005fcc;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .flight-form-container {
+    padding: 15px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+
+    button {
+      width: 100%;
+    }
+  }
+}

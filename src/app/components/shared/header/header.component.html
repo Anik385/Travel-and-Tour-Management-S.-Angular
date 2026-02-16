@@ -1,0 +1,184 @@
+<!-- <header class="header">
+  <nav class="navbar">
+    <div class="nav-brand">
+      <a routerLink="/" class="logo">
+        <i class="fas fa-plane"></i>
+        TravelTour
+      </a>
+    </div>
+    
+    <div class="nav-links">
+      <a routerLink="/" class="nav-link">Home</a>
+      <a routerLink="/tours" class="nav-link">Tours</a>
+      <a routerLink="/dashboard" class="nav-link" *ngIf="isLoggedIn">Dashboard</a>
+      <a routerLink="/admin" class="nav-link" *ngIf="isAdmin">Admin</a>
+    </div>
+
+    <div class="nav-actions">
+      <a routerLink="/my-bookings" class="cart-icon" *ngIf="isLoggedIn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+      
+      <div class="user-section" *ngIf="isLoggedIn; else authButtons">
+        <div class="user-menu">
+          <i class="fas fa-user-circle"></i>
+          <span class="username">User</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      
+      <ng-template #authButtons>
+        <div class="auth-buttons">
+          <button class="btn-login" routerLink="/login">Login</button>
+          <button class="btn-register" routerLink="/register">Register</button>
+        </div>
+      </ng-template>
+    </div>
+  </nav>
+</header> -->
+<!-- <div class="nav-brand">
+  <a routerLink="/" class="logo">
+    <i class="fas fa-plane"></i>
+    TravelTour
+  </a>
+</div> -->
+
+<header class="header">
+  <nav class="navbar">
+    <div class="nav-brand">
+      <a routerLink="/" class="logo">
+        <i class="fas fa-paper-plane"></i>
+        <span class="logo-text">TravelTour</span>
+      </a>
+    </div>
+
+    <div class="nav-links">
+      <a routerLink="/" class="nav-link">Home</a>
+      <a routerLink="/tours" class="nav-link">Tours</a>
+      <a routerLink="/flights" class="nav-link">Flights</a>
+
+      <!-- Destinations Dropdown -->
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle">
+          Destinations <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a routerLink="/destinations/asia" class="dropdown-item">Asia</a>
+          <a routerLink="/destinations/europe" class="dropdown-item">Europe</a>
+          <a routerLink="/destinations/middle-east" class="dropdown-item">Middle East</a>
+          <a routerLink="/destinations/americas" class="dropdown-item">Americas</a>
+          <a routerLink="/destinations/oceania" class="dropdown-item">Oceania</a>
+          <a routerLink="/destinations/africa" class="dropdown-item">Africa</a>
+        </div>
+      </div>
+
+      <!-- Travel Types Dropdown -->
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle">
+          Travel Types <i class="fas fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a routerLink="/tours/adventure" class="dropdown-item">Adventure</a>
+          <a routerLink="/tours/cultural" class="dropdown-item">Cultural</a>
+          <a routerLink="/tours/beach" class="dropdown-item">Beach Holidays</a>
+          <a routerLink="/tours/luxury" class="dropdown-item">Luxury</a>
+          <a routerLink="/tours/family" class="dropdown-item">Family Friendly</a>
+        </div>
+      </div>
+
+      <a routerLink="/deals" class="nav-link">
+        <span class="deal-badge">Hot Deals</span>
+      </a>
+      <a routerLink="/about" class="nav-link">About Us</a>
+      <a routerLink="/contact" class="nav-link">Contact</a>
+    </div>
+
+    <!-- Right side actions -->
+    <div class="nav-actions">
+      <!-- Cart icon -->
+      <!-- <a routerLink="/my-bookings" class="cart-icon" *ngIf="isLoggedIn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a> -->
+
+      <!-- User section - shows when logged in -->
+      <div class="user-section" *ngIf="isLoggedIn; else authButtons">
+        <!-- Admin indicator badge -->
+         <!-- z -->
+        <div class="admin-badge" *ngIf="isAdmin">
+          <i class="fas fa-crown"></i> Admin
+        </div>
+        
+        <!-- User dropdown toggle -->
+        <div class="user-menu" (click)="toggleUserDropdown()">
+          <i class="fas fa-user-circle"></i>
+          <span class="username">{{ userName || 'User' }}</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        
+        <!-- User dropdown menu -->
+        <div class="user-dropdown" *ngIf="showUserDropdown">
+          <!-- Common items for all users -->
+          <a routerLink="/dashboard" class="dropdown-item">
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+          </a>
+          <a routerLink="/my-bookings" class="dropdown-item">
+            <i class="fas fa-calendar-check"></i> My Bookings
+          </a>
+          <a routerLink="/profile" class="dropdown-item">
+            <i class="fas fa-user"></i> Profile
+          </a>
+          
+          <!-- Admin only items -->
+          <div *ngIf="isAdmin">
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-header"> Admin Panel</div>
+            
+            <a routerLink="/admin" class="dropdown-item">
+              <i class="fas fa-cog"></i> Admin Dashboard
+            </a>
+            <a routerLink="/admin/tours" class="dropdown-item">
+              <i class="fas fa-plane"></i> Manage Tours
+            </a>
+            <a routerLink="/admin/flights" class="dropdown-item">
+              <i class="fas fa-plane-departure"></i> Manage Flights
+            </a>
+            <a routerLink="/admin/bookings" class="dropdown-item">
+              <i class="fas fa-list"></i> Manage Bookings
+            </a>
+            <a routerLink="/admin/users" class="dropdown-item">
+              <i class="fas fa-users"></i> Manage Users
+            </a>
+            <div class="dropdown-divider"></div>
+            <a routerLink="/admin/tours/new" class="dropdown-item">
+              <i class="fas fa-plane"></i> Add New Tour
+            </a>
+            <a routerLink="/admin/flights/new" class="dropdown-item">
+              <i class="fas fa-plane-departure"></i> Add New Flight
+            </a>
+          </div>
+          
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item logout" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </div>
+      </div>
+
+      <!-- Auth buttons - shows when NOT logged in -->
+      <ng-template #authButtons>
+        <div class="auth-buttons">
+          <button class="btn-login" routerLink="/login">Login</button>
+          <button class="btn-register" routerLink="/register">Register</button>
+        </div>
+      </ng-template>
+    </div>
+  </nav>
+  <!-- Add this at the bottom of your header component, before closing </header> -->
+<div class="debug-panel" *ngIf="isLoggedIn">
+  <button (click)="debugToken()" style="background: #f39c12; color: white; border: none; padding: 5px 10px; border-radius: 4px; font-size: 12px; margin-left: 10px;">
+    Debug Token
+  </button>
+</div>
+</header>

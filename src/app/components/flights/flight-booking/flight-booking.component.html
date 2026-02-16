@@ -1,0 +1,111 @@
+<div class="flight-booking-container">
+  <div class="booking-header">
+    <h1>Complete Your Flight Booking</h1>
+    <div class="booking-steps">
+      <div class="step active">
+        <span class="step-number">1</span>
+        <span class="step-text">Flight Details</span>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <span class="step-text">Passenger Info</span>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <span class="step-text">Review & Pay</span>
+      </div>
+      <div class="step">
+        <span class="step-number">4</span>
+        <span class="step-text">Confirmation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="booking-content">
+    <!-- Flight Summary -->
+    <div class="flight-summary-section">
+      <h2>Your Flight</h2>
+      <div class="flight-details-card">
+        <div class="airline-header">
+          <div class="airline-info">
+            <div class="airline-logo">{{flight?.airline?.charAt(0)}}</div>
+            <div>
+              <h3>{{flight?.airline}}</h3>
+              <p class="flight-number">{{flight?.flightNumber}}</p>
+            </div>
+          </div>
+          <div class="flight-price">
+            <span class="price">${{flight?.price?.economy}}</span>
+            <span class="price-type">Economy</span>
+          </div>
+        </div>
+
+        <div class="route-details">
+          <div class="departure">
+            <div class="time">{{flight?.departure?.time}}</div>
+            <div class="date">{{flight?.departure?.date}}</div>
+            <div class="airport">{{flight?.departure?.airport}}</div>
+          </div>
+          
+          <div class="duration">
+            <div class="duration-line"></div>
+            <div class="duration-text">{{flight?.duration}}</div>
+            <div class="duration-line"></div>
+          </div>
+          
+          <div class="arrival">
+            <div class="time">{{flight?.arrival?.time}}</div>
+            <div class="date">{{flight?.arrival?.date}}</div>
+            <div class="airport">{{flight?.arrival?.airport}}</div>
+          </div>
+        </div>
+
+        <div class="flight-meta">
+          <div class="meta-item">
+            <i class="fas fa-chair"></i>
+            <span>Seats: {{flight?.seatsAvailable}} available</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-plane"></i>
+            <span>Aircraft: {{flight?.aircraft}}</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-luggage-cart"></i>
+            <span>Baggage: 20kg included</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fare Summary -->
+    <div class="fare-summary-section">
+      <h2>Fare Summary</h2>
+      <div class="fare-breakdown">
+        <div class="fare-row">
+          <span>Passenger (1 Adult)</span>
+          <span>${{flight?.price?.economy}}</span>
+        </div>
+        <div class="fare-row">
+          <span>Taxes & Fees</span>
+          <span>${{getTaxes()}}</span>
+        </div>
+        <div class="fare-row total">
+          <span>Total Amount</span>
+          <span>${{getTotalPrice()}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Actions -->
+    <div class="booking-actions">
+      <button class="btn-back" (click)="goBack()">
+        <i class="fas fa-arrow-left"></i>
+        Back to Flights
+      </button>
+      <button class="btn-continue" (click)="continueToPassenger()">
+        Continue to Passenger Details
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</div>

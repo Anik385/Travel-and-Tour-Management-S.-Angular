@@ -1,0 +1,213 @@
+<div class="flight-search-container">
+  <!-- Search Header -->
+  <div class="search-header">
+    <div class="container">
+      <div class="search-summary">
+        <button class="back-btn" (click)="modifySearch()">
+          <i class="fas fa-arrow-left"></i>
+          Modify Search
+        </button>
+        <div class="route-info">
+          <h1>{{ searchParams.from }} → {{ searchParams.to }}</h1>
+          <p>
+            {{ searchParams.departure }} • {{ searchParams.travelers }} •
+            {{ searchParams.class }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container main-content">
+    <div class="flight-results-layout">
+      <!-- Filters Sidebar -->
+      <aside class="filters-sidebar">
+        <div class="filter-section">
+          <h3>Filters</h3>
+
+          <!-- Price Filter -->
+          <div class="filter-group">
+            <label>Price Range</label>
+            <input
+              type="range"
+              min="200"
+              max="1000"
+              step="50"
+              [(ngModel)]="priceRange"
+              (input)="applyFilters()"
+              class="price-slider"
+            />
+            <span class="price-value">Up to ${{ priceRange }}</span>
+          </div>
+
+          <!-- Stops Filter -->
+          <div class="filter-group">
+            <label>Stops</label>
+            <div class="radio-options">
+              <label>
+                <input
+                  type="radio"
+                  name="stops"
+                  value="any"
+                  [(ngModel)]="selectedStops"
+                  (change)="applyFilters()"
+                />
+                Any stops
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="stops"
+                  value="nonstop"
+                  [(ngModel)]="selectedStops"
+                  (change)="applyFilters()"
+                />
+                Non-stop
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="stops"
+                  value="1stop"
+                  [(ngModel)]="selectedStops"
+                  (change)="applyFilters()"
+                />
+                1 Stop
+              </label>
+            </div>
+          </div>
+
+          <!-- Airlines Filter -->
+          <div class="filter-group">
+            <label>Airlines</label>
+            <div class="checkbox-options">
+              <label *ngFor="let airline of airlines" class="checkbox-label">
+                <input
+                  type="checkbox"
+                  [value]="airline"
+                  [checked]="selectedAirlines.includes(airline)"
+                  (change)="toggleAirline(airline)"
+                />
+                {{ airline }}
+              </label>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Flight Results -->
+      <main class="flight-results">
+        <!-- Admin Actions -->
+        <div class="admin-actions" *ngIf="isAdmin">
+          <button class="btn-admin" routerLink="/admin/flights">
+            <i class="fas fa-cog"></i> Manage Flights (Admin)
+          </button>
+        </div>
+
+        <!-- Sorting Options -->
+        <div class="sorting-options">
+          <span>{{ flights.length }} flights found</span>
+          <div class="sort-buttons">
+            <button (click)="sortFlights('price')">Cheapest</button>
+            <button (click)="sortFlights('duration')">Quickest</button>
+            <button (click)="sortFlights('departure')">Departure</button>
+          </div>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading-state" *ngIf="isLoading">
+          <i class="fas fa-plane fa-spin"></i>
+          <p>Searching for flights...</p>
+        </div>
+
+        <!-- Flight Cards -->
+        <div class="flight-cards" *ngIf="!isLoading">
+          <!-- Show message if no flights -->
+          <div *ngIf="flights.length === 0" class="no-flights">
+            <div class="no-flights-content">
+              <i class="fas fa-plane-slash"></i>
+              <h3>No flights available</h3>
+              <p>Try searching different routes or dates</p>
+              <button class="btn-load-sample" (click)="loadSampleFlights()">
+                <i class="fas fa-rocket"></i>
+                Load Sample Flights
+              </button>
+            </div>
+          </div>
+
+          <!-- Flight cards -->
+          <div class="flight-card" *ngFor="let flight of flights">
+            <div class="flight-header">
+              <div class="airline-info">
+                <div class="airline-logo">{{ flight.airline?.charAt(0) }}</div>
+                <div class="airline-details">
+                  <h3>{{ flight.airline }}</h3>
+                  <span class="flight-number">{{ flight.flightNumber }}</span>
+                </div>
+              </div>
+              <div class="flight-price">
+                <span class="price"
+                  >${{ flight.price?.economy || flight.price }}</span
+                >
+                <span class="seats-left" *ngIf="flight.seatsAvailable < 10">
+                  Only {{ flight.seatsAvailable }} seats left
+                </span>
+              </div>
+            </div>
+
+            <div class="flight-details">
+              <div class="route">
+                <div class="departure">
+                  <span class="time">{{ flight.departure?.time }}</span>
+                  <span class="airport">{{ flight.departure?.airport }}</span>
+                </div>
+
+                <div class="duration">
+                  <div class="line"></div>
+                  <span class="duration-text">{{ flight.duration }}</span>
+                  <div class="line"></div>
+                </div>
+
+                <div class="arrival">
+                  <span class="time">{{ flight.arrival?.time }}</span>
+                  <span class="airport">{{ flight.arrival?.airport }}</span>
+                </div>
+              </div>
+
+              <div class="flight-meta">
+                <span class="stops">{{
+                  flight.stops === 0 ? "Non-stop" : flight.stops + " Stop(s)"
+                }}</span>
+                <span class="aircraft">{{ flight.aircraft }}</span>
+              </div>
+            </div>
+
+            <div class="flight-actions">
+              <button class="book-btn" (click)="bookFlight(flight)">
+                Book Now
+              </button>
+              <!-- <button class="details-btn" (click)="showFlightDetails(flight)">
+                Details
+              </button> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- No Results -->
+        <div class="no-results" *ngIf="!isLoading && flights.length === 0">
+          <i class="fas fa-plane-slash"></i>
+          <h3>No flights found</h3>
+          <p>Try modifying your search criteria</p>
+          <button class="modify-btn" (click)="modifySearch()">
+            Modify Search
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div *ngIf="!isLoading && flights.length > 0">
+  <div class="debug-info" style="background: yellow; padding: 10px;">
+    API returned {{flights.length}} flights but UI not showing them!
+  </div>
+</div>
+</div>

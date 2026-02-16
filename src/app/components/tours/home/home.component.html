@@ -1,0 +1,222 @@
+<!-- Single Hero Section with Background Image -->
+<!-- <section class="hero" [style.backgroundImage]="'url(assets/images/hero/hero-main.jpg)'">  -->
+  <section class="hero">
+  <video autoplay muted loop class="hero-video">
+    <source src="assets/images/hero/hero-main.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h1 class="hero-title">Discover Amazing Travel Experiences</h1>
+    <p class="hero-subtitle">
+      Explore the world with our curated tour packages and create unforgettable memories
+    </p>
+
+    <!-- Search Tabs -->
+    <div class="search-tabs">
+      <button class="tab-btn active" (click)="setActiveTab('tours')">
+        <i class="fas fa-plane"></i>
+        Find Tours
+      </button>
+      <button class="tab-btn" (click)="setActiveTab('flights')">
+        <i class="fas fa-plane-departure"></i>
+        Find Flights
+      </button>
+    </div>
+
+    <!-- Tours Search -->
+    <div class="search-panel" *ngIf="activeTab === 'tours'">
+      <div class="search-box">
+        <input type="text" placeholder="Where do you want to go?" 
+               [(ngModel)]="searchTerm" class="search-input">
+        <button class="search-btn" (click)="onSearch()">
+          <i class="fas fa-search"></i>
+          Search Tours
+        </button>
+      </div>
+    </div>
+
+    <!-- Flights Search -->
+    <div class="search-panel" *ngIf="activeTab === 'flights'">
+      <div class="flight-search-box">
+        <div class="flight-inputs">
+          <div class="input-group">
+            <i class="fas fa-plane-departure"></i>
+            <input type="text" placeholder="From (City or Airport)" 
+                   [(ngModel)]="flightFrom" class="form-input">
+          </div>
+          <div class="input-group">
+            <i class="fas fa-plane-arrival"></i>
+            <input type="text" placeholder="To (City or Airport)" 
+                   [(ngModel)]="flightTo" class="form-input">
+          </div>
+          <div class="input-group">
+            <i class="fas fa-calendar"></i>
+            <input type="date" [(ngModel)]="flightDeparture" 
+                   [min]="getTodayDate()" class="form-input">
+          </div>
+          <div class="input-group">
+            <i class="fas fa-calendar-check"></i>
+            <input type="date" [(ngModel)]="flightReturn" 
+                   [min]="flightDeparture" class="form-input">
+          </div>
+          <div class="input-group">
+            <i class="fas fa-users"></i>
+            <select [(ngModel)]="flightTravelers" class="form-select">
+              <option>1 Traveler</option>
+              <option>2 Travelers</option>
+              <option>3 Travelers</option>
+              <option>4 Travelers</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-briefcase"></i>
+            <select [(ngModel)]="flightClass" class="form-select">
+              <option>Economy</option>
+              <option>Premium Economy</option>
+              <option>Business</option>
+              <option>First Class</option>
+            </select>
+          </div>
+        </div>
+        <button class="search-btn flight-search-btn" (click)="onFlightSearch()">
+          <i class="fas fa-search"></i>
+          Search Flights
+        </button>
+      </div>
+
+      <!-- Quick Flight Search Suggestions -->
+      <div class="quick-destinations">
+        <h4>Popular Flight Routes:</h4>
+        <div class="quick-buttons">
+          <button class="quick-btn" (click)="searchFlightsTo('Dubai')">✈️ Dubai</button>
+          <button class="quick-btn" (click)="searchFlightsTo('London')">✈️ London</button>
+          <button class="quick-btn" (click)="searchFlightsTo('Bali')">✈️ Bali</button>
+          <button class="quick-btn" (click)="searchFlightsTo('Tokyo')">✈️ Tokyo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Featured Destinations Grid -->
+<section class="featured-destinations">
+  <div class="container">
+    <h2 class="section-title">Featured Destinations</h2>
+    <p class="section-subtitle">Discover our most popular travel spots around the world</p>
+    
+    <div class="destinations-grid">
+      <div class="destination-card" *ngFor="let destination of featuredDestinations" 
+           (click)="navigateToDestination(destination)">
+        <div class="destination-image">
+          <img [src]="destination.image" [alt]="destination.name">
+          <div class="destination-overlay">
+            <h3>{{destination.name}}</h3>
+            <p>{{destination.tours}} Tours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+  <div class="container">
+    <h2 class="section-title">Why Choose Us?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Safe & Secure</h3>
+        <p>Your safety is our top priority with verified partners and secure payments</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fas fa-tag"></i>
+        <h3>Best Prices</h3>
+        <p>Guaranteed best prices with no hidden charges</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fas fa-headset"></i>
+        <h3>24/7 Support</h3>
+        <p>Round-the-clock customer support for all your travel needs</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fas fa-map-marked-alt"></i>
+        <h3>Expert Guides</h3>
+        <p>Experienced local guides for authentic travel experiences</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popular Tours Section -->
+<section class="popular-tours">
+  <div class="container">
+    <h2 class="section-title">Popular Tours</h2>
+    <p class="section-subtitle">Handpicked experiences for your next adventure</p>
+
+    <div class="tours-grid">
+      <div class="tour-placeholder">
+        <i class="fas fa-plane"></i>
+        <p>Featured tours coming soon...</p>
+        <button class="btn-primary" routerLink="/tours">
+          Explore All Tours
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>TravelTour</h4>
+        <p>Your trusted partner for amazing travel experiences around the world.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h5>Company</h5>
+        <ul>
+          <li><a routerLink="/about">About Us</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Cancellation Policy</a></li>
+          <li><a href="#">Travel Insurance</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 TravelTour. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

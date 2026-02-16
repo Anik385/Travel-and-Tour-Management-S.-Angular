@@ -1,0 +1,38 @@
+<div class="tour-card">
+  <div class="tour-image">
+    <!-- <img [src]="tour?.images[0]" [alt]="tour?.title"> -->
+     <img [src]="tour?.images?.[0]" [alt]="tour?.title"> <!-- Add ?. -->
+    <div class="tour-badge" *ngIf="tour?.discount">-{{tour.discount}}%</div>
+    <button class="wishlist-btn">
+      <i class="far fa-heart"></i>
+    </button>
+  </div>
+  
+  <div class="tour-content">
+    <h3 class="tour-title">{{tour?.title}}</h3>
+    <p class="tour-destination">
+      <i class="fas fa-map-marker-alt"></i>
+      {{tour?.destination}}
+    </p>
+    
+    <div class="tour-meta">
+      <span class="tour-duration">
+        <i class="far fa-clock"></i>
+        {{tour?.duration}} days
+      </span>
+      <span class="tour-rating">
+        <i class="fas fa-star"></i>
+        {{tour?.rating}}
+      </span>
+    </div>
+    
+    <div class="tour-price">
+      <span class="current-price">${{tour?.price}}</span>
+      <span class="original-price" *ngIf="tour?.originalPrice">${{tour.originalPrice}}</span>
+    </div>
+    
+    <button class="book-btn" routerLink="/tours/{{tour?.id}}">
+      View Details
+    </button>
+  </div>
+</div>
